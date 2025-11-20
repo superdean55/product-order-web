@@ -1,0 +1,34 @@
+{
+  "login": {
+    "title": "Login",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "submit": "Login",
+    "loading": "Loading...",
+    "invalidCredentials": "Invalid email or password",
+    "serverError": "Internal server error",
+    "noAccount": "Don't have an account?",
+    "register": "Register"
+  },
+  "register": {
+    "title": "Register"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme",
+    "language": "Language",
+
+    "followSystemTheme": "Follow system theme",
+    "themeLabel": "Theme",
+    "currentTheme": "Current theme",
+
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "languages": {
+    "english": "English",
+    "croatian": "Croatian"
+  }
+}

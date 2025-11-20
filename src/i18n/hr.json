@@ -1,0 +1,34 @@
+{
+  "login": {
+    "title": "Prijava",
+    "emailPlaceholder": "Unesite svoj email",
+    "passwordPlaceholder": "Unesite lozinku",
+    "emailLabel": "Email",
+    "passwordLabel": "Lozinka",
+    "submit": "Prijavi se",
+    "loading": "Učitavanje...",
+    "invalidCredentials": "Neispravan email ili lozinka",
+    "serverError": "Interna greška servera",
+    "noAccount": "Nemate račun?",
+    "register": "Registrirajte se"
+  },
+  "register": {
+    "title": "Registracija"
+  },
+  "settings": {
+    "title": "Postavke",
+    "theme": "Tema",
+    "language": "Jezik",
+
+    "followSystemTheme": "Prati sistemsku temu",
+    "themeLabel": "Tema",
+    "currentTheme": "Trenutna tema",
+
+    "light": "Svijetla",
+    "dark": "Tamna"
+  },
+  "languages": {
+    "croatian": "Hrvatski",
+    "english": "Engleski"
+  }
+}
