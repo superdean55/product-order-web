@@ -45,10 +45,10 @@ export default function LoginPage() {
 
   return (
     <AuthCard>
-      <h1 className="text-2xl text-gray-600 font-bold mb-4 text-center">Login</h1>
+      <h1 className="text-2xl text-gray-700 dark:text-gray-100 font-bold mb-4 text-center">Login</h1>
 
       {errors.root && (
-        <p className="text-red-500 text-sm mb-4 text-center">
+        <p className="text-red-500 dark:text-red-800 text-sm mb-4 text-center">
           {errors.root.message}
         </p>
       )}
@@ -75,7 +75,7 @@ export default function LoginPage() {
 
       <p className="pt-4 text-sm text-gray-600 text-center">
         Don't have an account?{" "}
-        <a href="/register" className="text-blue-600 hover:underline">
+        <a href="/register" className="text-blue-600 dark:text-gray-100 hover:underline">
           Register
         </a>
       </p>
