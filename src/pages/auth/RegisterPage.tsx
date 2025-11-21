@@ -49,6 +49,7 @@ export default function RegisterPage() {
         });
         return;
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError("root", {
         type: "server",
