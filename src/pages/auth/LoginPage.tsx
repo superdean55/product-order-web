@@ -3,6 +3,7 @@ import AuthCard from "../../components/ui/AuthCard";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 type LoginData = {
   email: string;
@@ -84,12 +85,12 @@ export default function LoginPage() {
 
       <p className="pt-4 text-sm text-gray-600 text-center">
         {t("login.noAccount")}{" "}
-        <a
-          href="/register"
+        <Link
+          to="/register"
           className="text-blue-600 dark:text-gray-100 hover:underline"
         >
           {t("login.register")}
-        </a>
+        </Link>
       </p>
     </AuthCard>
   );

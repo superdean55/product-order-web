@@ -13,7 +13,25 @@
     "register": "Register"
   },
   "register": {
-    "title": "Register"
+    "title": "Register",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPasswordPlaceholder": "Repeat your password",
+    "submit": "Register",
+    "loading": "Registering...",
+    "serverError": "Internal server error",
+    "emailExists": "An account with this email already exists",
+    "haveAccount": "Already have an account?",
+    "login": "Login",
+    "errors": {
+      "invalidEmail": "Please enter a valid email address",
+      "requiredEmail": "Email is required",
+      "passwordMin": "Password must be at least 6 characters",
+      "passwordsDontMatch": "Passwords do not match"
+    }
   },
   "settings": {
     "title": "Settings",

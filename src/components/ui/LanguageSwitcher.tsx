@@ -20,8 +20,8 @@ export default function LanguageSelector() {
           onClick={() => setLanguage(lang.code)}
           className={`flex items-center justify-center gap-2 w-full ${
             language === lang.code
-              ? "bg-blue-600 text-white"
-              : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-white"
+              ? "bg-blue-600 dark:bg-gray-900 text-white"
+              : "bg-gray-200 text-gray-800 hover:bg-gray-500 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500"
           }`}
         >
           <span className={`fi fi-${lang.flag} text-lg`}></span>

@@ -13,7 +13,25 @@
     "register": "Registrirajte se"
   },
   "register": {
-    "title": "Registracija"
+    "title": "Registracija",
+    "emailLabel": "Email",
+    "passwordLabel": "Lozinka",
+    "confirmPasswordLabel": "Potvrdi lozinku",
+    "emailPlaceholder": "Unesite svoj email",
+    "passwordPlaceholder": "Unesite svoju lozinku",
+    "confirmPasswordPlaceholder": "Ponovite lozinku",
+    "submit": "Registracija",
+    "loading": "Registriram...",
+    "serverError": "Greška na serveru",
+    "emailExists": "Račun s ovim emailom već postoji",
+    "haveAccount": "Već imate račun?",
+    "login": "Prijava",
+    "errors": {
+      "invalidEmail": "Unesite ispravnu email adresu",
+      "requiredEmail": "Email je obavezan",
+      "passwordMin": "Lozinka mora imati najmanje 6 znakova",
+      "passwordsDontMatch": "Lozinke se ne podudaraju"
+    }
   },
   "settings": {
     "title": "Postavke",
