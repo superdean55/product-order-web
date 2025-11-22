@@ -21,3 +21,9 @@ export type RegisterResponse = {
   message: string;
   data: { user: User; token: string };
 };
+
+export type LogoutResponse = {
+  success: boolean;
+  message: string;
+  data: null;
+};
