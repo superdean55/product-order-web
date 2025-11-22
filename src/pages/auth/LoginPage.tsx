@@ -4,6 +4,7 @@ import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useLoginMutation } from "../../hooks/queries/useAuthQuery";
 
 type LoginData = {
   email: string;
@@ -23,26 +24,17 @@ export default function LoginPage() {
     defaultValues: { email: "", password: "" },
   });
 
+  const { mutateAsync } = useLoginMutation();
+
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
     try {
-      await new Promise((r) => setTimeout(r, 800));
-
-      // for testing purposes only
-      const isInvalid =
-        data.email !== "demo@example.com" || data.password !== "password";
-      if (isInvalid) {
-        setError("root", {
-          type: "server",
-          message: t("login.invalidCredentials"),
-        });
-        return;
-      }
-      console.log("Login successful:", data);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (err) {
+      const serverResponse = await mutateAsync(data); 
+      console.log("Login successful:", serverResponse);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
       setError("root", {
         type: "server",
-        message: t("login.serverError"),
+        message: err.response?.data?.message || t("login.serverError"),
       });
     }
   };
