@@ -3,8 +3,9 @@ import AuthCard from "../../components/ui/AuthCard";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../hooks/queries/useAuthQuery";
+import { ROUTE_PATHS } from "../../router/routes";
 
 type LoginData = {
   email: string;
@@ -13,11 +14,13 @@ type LoginData = {
 
 export default function LoginPage() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     setError,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<LoginData>({
     mode: "onSubmit",
@@ -30,6 +33,8 @@ export default function LoginPage() {
     try {
       const serverResponse = await mutateAsync(data); 
       console.log("Login successful:", serverResponse);
+      reset();
+      navigate(ROUTE_PATHS.HOME);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError("root", {
@@ -78,7 +83,7 @@ export default function LoginPage() {
       <p className="pt-4 text-sm text-gray-600 text-center">
         {t("login.noAccount")}{" "}
         <Link
-          to="/register"
+          to={ROUTE_PATHS.REGISTER}
           className="text-blue-600 dark:text-gray-100 hover:underline"
         >
           {t("login.register")}

@@ -3,15 +3,16 @@ import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import MainLayout from "../components/layout/MainLayout";
 import { HomePage } from "../pages/HomePage";
+import { ROUTE_PATHS } from "./routes";
 
 export default function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path={ROUTE_PATHS.HOME} element={<HomePage/>} />
+          <Route path={ROUTE_PATHS.LOGIN} element={<LoginPage />} />
+          <Route path={ROUTE_PATHS.REGISTER} element={<RegisterPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
