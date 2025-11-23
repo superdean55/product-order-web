@@ -11,7 +11,7 @@ export default function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path={ROUTE_PATHS.HOME} element={<HomePage/>} />
+          <Route path={ROUTE_PATHS.HOME} element={<HomePage />} />
           <Route element={<PublicRoute />}>
             <Route path={ROUTE_PATHS.LOGIN} element={<LoginPage />} />
             <Route path={ROUTE_PATHS.REGISTER} element={<RegisterPage />} />
