@@ -4,6 +4,6 @@ export type User = {
   email: string;
   role: string;
   imageUrl: string | null;
-  creatrdAt: string;
+  createdAt: string;
   updatedAt: string;
 };

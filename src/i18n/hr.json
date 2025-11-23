@@ -48,5 +48,16 @@
   "languages": {
     "croatian": "Hrvatski",
     "english": "Engleski"
+  },
+  "profile":{
+    "title": "Korisnički profil",
+    "username": "Korisničko ime",
+    "email": "Email",
+    "role": "Uloga",
+    "registredSince": "Registriran od",
+    "lastUpdated": "Posljednje ažurirano",
+    "status": "Status",
+    "statusActive": "Aktivan",
+    "InvalidDate": "Neispravan Datum"
   }
 }

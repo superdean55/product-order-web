@@ -48,5 +48,16 @@
   "languages": {
     "english": "English",
     "croatian": "Croatian"
+  },
+  "profile":{
+    "title": "Profile",
+    "username": "Username",
+    "email": "Email",
+    "role": "Role",
+    "registredSince": "Registred since",
+    "lastUpdated": "Last updated",
+    "status": "Status",
+    "statusActive": "Active",
+    "InvalidDate": "Invalid date"
   }
 }

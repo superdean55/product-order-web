@@ -5,6 +5,8 @@ import MainLayout from "../components/layout/MainLayout";
 import { HomePage } from "../pages/HomePage";
 import { ROUTE_PATHS } from "./routes";
 import { PublicRoute } from "./PublicRoute";
+import { PrivateRoute } from "./PrivateRoute";
+import { ProfilePage } from "../pages/user/ProfilePage";
 
 export default function AppRouter() {
   return (
@@ -15,6 +17,9 @@ export default function AppRouter() {
           <Route element={<PublicRoute />}>
             <Route path={ROUTE_PATHS.LOGIN} element={<LoginPage />} />
             <Route path={ROUTE_PATHS.REGISTER} element={<RegisterPage />} />
+          </Route>
+          <Route element={<PrivateRoute allowedRoles={["ADMIN", "USER"]} />}>
+            <Route path={ROUTE_PATHS.PROFILE} element={<ProfilePage />} />
           </Route>
         </Route>
       </Routes>

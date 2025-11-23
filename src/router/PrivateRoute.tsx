@@ -9,10 +9,8 @@ interface PrivateRouteProps {
 }
 
 export const PrivateRoute: React.FC<PrivateRouteProps> = ({ allowedRoles }) => {
-  const { token, user } = useAuthStore((state) => ({
-    token: state.token,
-    user: state.user,
-  }));
+  const  token = useAuthStore((state) => state.token);
+  const  user = useAuthStore((state) => state.user);
 
   if (!token) return <Navigate to={ROUTE_PATHS.LOGIN} replace />;
 
