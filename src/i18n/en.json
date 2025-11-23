@@ -49,7 +49,7 @@
     "english": "English",
     "croatian": "Croatian"
   },
-  "profile":{
+  "profile": {
     "title": "Profile",
     "username": "Username",
     "email": "Email",
@@ -58,6 +58,10 @@
     "lastUpdated": "Last updated",
     "status": "Status",
     "statusActive": "Active",
-    "InvalidDate": "Invalid date"
+    "InvalidDate": "Invalid date",
+    "actions": {
+      "logout": "Logout",
+      "loggingOut": "Logging out..."
+    }
   }
 }

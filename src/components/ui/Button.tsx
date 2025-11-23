@@ -6,7 +6,7 @@ export default function Button({ children, className = "", ...rest }: ButtonProp
   return (
     <button
       {...rest}
-      className={`w-full py-2 rounded-md ${className}`}
+      className={`w-full p-2 rounded-md ${className}`}
     >
       {children}
     </button>

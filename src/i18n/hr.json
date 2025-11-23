@@ -58,6 +58,10 @@
     "lastUpdated": "Posljednje ažurirano",
     "status": "Status",
     "statusActive": "Aktivan",
-    "InvalidDate": "Neispravan Datum"
+    "InvalidDate": "Neispravan Datum",
+    "actions": {
+      "logout": "Odjava",
+      "loggingOut": "Odjavljivanje..."
+    }
   }
 }
