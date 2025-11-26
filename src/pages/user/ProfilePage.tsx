@@ -7,17 +7,19 @@ import { useTranslation } from "react-i18next";
 import { ProfileSection } from "../../components/profile/ProfileSection";
 import { UserImage } from "../../components/profile/UserImage";
 import { resizeImage } from "../../utils/imageUtils";
+import { useUploadUserImageMutation } from "../../hooks/queries/useUserImageQuery";
 
 export const ProfilePage: React.FC = () => {
   const user = useAuthStore((state) => state.user);
-  const { mutate, isPending } = useLogoutMutation();
+  const { mutate: logoutMutate, isPending: isLoggingOut } = useLogoutMutation();
+  const { mutate: uploadMutate } = useUploadUserImageMutation();
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   if (!user) return null;
 
   const handleLogout = () => {
-    mutate();
+    logoutMutate();
   };
 
   const changeImage = () => {
@@ -28,25 +30,23 @@ export const ProfilePage: React.FC = () => {
 
   const removeImage = () => {};
 
-  const handleFileChange = async(event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const originalFile = event.target.files?.[0];
     if (originalFile) {
       try {
         const resizedBlob = await resizeImage(originalFile, 500, 500);
 
-        const resizedFile = new File(
-          [resizedBlob], 
-          originalFile.name, 
-          { 
-            type: resizedBlob.type, 
-            lastModified: Date.now() 
-          }
-        );
+        const resizedFile = new File([resizedBlob], originalFile.name, {
+          type: resizedBlob.type,
+          lastModified: Date.now(),
+        });
+        uploadMutate(resizedFile);
         console.log("Original size (B):", originalFile.size);
         console.log("Reduced size (B):", resizedBlob.size);
       } catch (error) {
         console.error("Image processing error:", error);
-  
       }
     }
   };
@@ -75,9 +75,9 @@ export const ProfilePage: React.FC = () => {
           <Button
             className="bg-blue-500 dark:bg-gray-600 hover:bg-blue-700 dark:hover:bg-gray-500"
             onClick={handleLogout}
-            disabled={isPending}
+            disabled={isLoggingOut}
           >
-            {isPending
+            {isLoggingOut
               ? t("profile.actions.loggingOut")
               : t("profile.actions.logout")}
           </Button>
