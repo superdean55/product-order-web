@@ -1,0 +1,41 @@
+import type { LucideIcon } from 'lucide-react'; 
+import type { FloatingPositionValue } from '../../constants/floatingButtonPosition';
+
+interface FloatingActionButtonProps {
+  onClick: () => void;
+  Icon: LucideIcon; 
+  title: string;
+  position: FloatingPositionValue;
+  className?: string;
+}
+
+export const FloatingActionButton = ({
+  onClick,
+  Icon,
+  title,
+  position,
+  className = ''
+}: FloatingActionButtonProps) => {
+  
+  const baseClasses = `
+    absolute ${position} 
+    text-gray-700 dark:text-gray-100
+    bg-gray-300 dark:bg-gray-500
+    p-2 rounded-full shadow-lg 
+    transition-colors duration-200 
+    hover:bg-gray-400 dark:hover:bg-gray-400
+    focus:outline-none focus:ring-2 focus:ring-gray-700 cursor-pointer
+    ${className}
+  `;
+
+  return (
+    <button
+      onClick={onClick}
+      className={baseClasses}
+      aria-label={title}
+      title={title}
+    >
+      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+    </button>
+  );
+};

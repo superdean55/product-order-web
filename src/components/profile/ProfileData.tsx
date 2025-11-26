@@ -1,5 +1,5 @@
 import React from "react";
-import { LabeledDataItem } from "../ui/LabeledDataItem"; // Prilagodite putanju
+import { LabeledDataItem } from "../ui/LabeledDataItem";
 import { useTranslation } from "react-i18next";
 
 interface UserProfileData {
@@ -31,22 +31,16 @@ export const ProfileData: React.FC<ProfileDataProps> = ({ user }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
       <LabeledDataItem label={t("profile.username")} value={user.username} />
       <LabeledDataItem label={t("profile.email")} value={user.email} />
-      <LabeledDataItem label={t("profile.role")} value={user.role} />
       <LabeledDataItem
-        label={t("profile.registeredSince")}
+        label={t("profile.registredSince")}
         value={formatDate(user.createdAt)}
       />
       <LabeledDataItem
         label={t("profile.lastUpdated")}
         value={formatDate(user.updatedAt)}
-      />
-      <LabeledDataItem
-        label={t("profile.status")}
-        value={t("profile.statusActive")}
-        className="sm:col-span-2 bg-green-100 dark:bg-green-800 border border-green-300 dark:border-green-600"
       />
     </div>
   );

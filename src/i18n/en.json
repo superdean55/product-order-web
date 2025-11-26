@@ -59,7 +59,16 @@
     "status": "Status",
     "statusActive": "Active",
     "InvalidDate": "Invalid date",
+    "sections":{
+      "personalInformation": "Personal information"
+    },
     "actions": {
+      "image": {
+        "add": "Add image",
+        "remove": "Remove image",
+        "edit": "Change image",
+        "altProfileImage": "profile image"
+      },
       "logout": "Logout",
       "loggingOut": "Logging out..."
     }

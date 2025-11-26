@@ -59,7 +59,16 @@
     "status": "Status",
     "statusActive": "Aktivan",
     "InvalidDate": "Neispravan Datum",
+    "sections":{
+      "personalInformation": "Osobne Informacije"
+    },
     "actions": {
+      "image": {
+        "add": "Dodaj sliku",
+        "remove": "Obriši sliku",
+        "edit": "Izmjeni sliku",
+        "altProfileImage": "profilna slika"
+      },
       "logout": "Odjava",
       "loggingOut": "Odjavljivanje..."
     }
