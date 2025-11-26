@@ -15,6 +15,7 @@ export const UserImage = ({
   imageUrl,
   username,
   onImageEditClick,
+  onImageRemoveClick
 }: UserImageProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useTranslation();
@@ -52,9 +53,9 @@ export const UserImage = ({
             position={FLOATING_POSITION.BOTTOM_RIGHT}
           />
         )}
-        {isHovered && onImageEditClick && imageUrl && (
+        {isHovered && onImageRemoveClick && imageUrl && (
           <FloatingActionButton
-            onClick={onImageEditClick}
+            onClick={onImageRemoveClick}
             Icon={ImageMinus}
             title={t("profile.actions.image.remove")}
             position={FLOATING_POSITION.TOP_RIGHT}
