@@ -1,20 +1,42 @@
+import { ChevronDown, ChevronUp } from "lucide-react";
+
 interface ProfileSectionProps {
   label: string;
+  isSectionOpen?: boolean;
+  toggleIsSectionOpen?: () => void;
   children: React.ReactNode;
 }
-export const ProfileSection = ({ label, children }: ProfileSectionProps) => {
+export const ProfileSection = ({
+  label,
+  isSectionOpen,
+  toggleIsSectionOpen,
+  children,
+}: ProfileSectionProps) => {
+  const isCollapsible =
+    isSectionOpen !== undefined && toggleIsSectionOpen !== undefined;
+  const isContentVisible = !isCollapsible || isSectionOpen;
+  const Icon = isSectionOpen ? ChevronUp : ChevronDown;
   return (
     <>
       <div className="w-full flex flex-col items-start">
-        <span
-          className="
-        text-[12px] font-medium uppercase tracking-wider 
-        text-gray-500 dark:text-gray-400
-      "
-        >
-          {label}
-        </span>
-        <div className="px-2 w-full">{children}</div>
+        <div className="flex flex-row gap-2">
+          <span
+            className="
+          text-[12px] font-medium uppercase tracking-wider
+          text-gray-500 dark:text-gray-400
+                "
+          >
+            {label}
+          </span>
+          {isCollapsible && (
+            <Icon
+              onClick={toggleIsSectionOpen}
+              className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer text-gray-500 dark:text-gray-400"
+              aria-label={isSectionOpen ? `Hide ${label}` : `Show ${label}`}
+            />
+          )}
+        </div>
+        {isContentVisible && <div className="px-2 w-full mt-1">{children}</div>}
       </div>
     </>
   );

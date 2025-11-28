@@ -59,8 +59,14 @@
     "status": "Status",
     "statusActive": "Active",
     "InvalidDate": "Invalid date",
-    "sections":{
-      "personalInformation": "Personal information"
+    "sections": {
+      "personalInformation": "Personal information",
+      "accountSettings": "Profile settings"
+    },
+    "viewTitles": {
+      "main": "Account",
+      "changePassword": "Change password",
+      "deleteAccount": "Delete account"
     },
     "actions": {
       "image": {
@@ -68,6 +74,22 @@
         "remove": "Remove image",
         "edit": "Change image",
         "altProfileImage": "profile image"
+      },
+      "settings": {
+        "manu":{
+          "changePassword": "Change password",
+          "deleteAccount": "Delete account"
+        },
+        "changePassword": {
+          "currentPasswordLabel": "Current Password",
+          "currentPasswordPlaceholder": "Enter your password",
+          "passwordLabel": "New Password",
+          "passwordPlaceholder": "Enter new password",
+          "confirmPasswordLabel": "Confirm Password",
+          "confirmPasswordPlaceholder": "Enter new password",
+          "submit": "Change",
+          "loading": "Changing..."
+        }
       },
       "logout": "Logout",
       "loggingOut": "Logging out..."

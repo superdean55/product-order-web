@@ -60,7 +60,13 @@
     "statusActive": "Aktivan",
     "InvalidDate": "Neispravan Datum",
     "sections":{
-      "personalInformation": "Osobne Informacije"
+      "personalInformation": "Osobne Informacije",
+      "accountSettings": "Postavke Računa"
+    },
+    "viewTitles": {
+      "main": "Profil",
+      "changePassword": "Promjeni lozinku",
+      "deleteAccount": "Obriši profil"
     },
     "actions": {
       "image": {
@@ -68,6 +74,22 @@
         "remove": "Obriši sliku",
         "edit": "Izmjeni sliku",
         "altProfileImage": "profilna slika"
+      },
+      "settings": {
+        "manu":{
+          "changePassword": "Promjeni lozinku",
+          "deleteAccount": "Obriši profil"
+        },
+        "changePassword": {
+          "currentPasswordLabel": "Trenutna Lozinka",
+          "currentPasswordPlaceholder": "Unesite svoju lozinku",
+          "passwordLabel": "Nova lozinka",
+          "passwordPlaceholder": "Unesite novu lozinku",
+          "confirmPasswordLabel": "Potvrdi lozinku",
+          "confirmPasswordPlaceholder": "Unesi lozinku",
+          "submit": "Promjeni",
+          "loading": "Mjenjam..."
+        }
       },
       "logout": "Odjava",
       "loggingOut": "Odjavljivanje..."
