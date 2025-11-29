@@ -27,3 +27,24 @@ export type LogoutResponse = {
   message: string;
   data: null;
 };
+
+export type ChangePasswordInput = {
+  currentPassword: string,
+  newPassword: string,
+}
+
+export type ChangePasswordSuccess = {
+  success: true;
+  message: string;
+  data: null;
+};
+
+export type ChangePasswordError = {
+  success: false;
+  message: string;
+  errors?: Record<string, unknown> | null;
+};
+export type ChangePasswordResponse =
+  | ChangePasswordSuccess
+  | ChangePasswordError;
+

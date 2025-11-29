@@ -1,6 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { authApi } from "../../api/endpoints/auth";
 import type {
+  ChangePasswordInput,
+  ChangePasswordResponse,
   LoginInput,
   LoginResponse,
   RegisterInput,
@@ -40,3 +42,12 @@ export const useLogoutMutation = () => {
     },
   });
 };
+
+export const useChangePasswordMutation = () => {
+  return useMutation<ChangePasswordResponse, Error, ChangePasswordInput>({
+    mutationFn: (body: ChangePasswordInput) => authApi.changePassword(body),
+    onSuccess: () => {
+      
+    },
+  });
+}

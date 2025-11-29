@@ -32,7 +32,7 @@ export const ProfilePage = () => {
           />
         );
       case "CHANGE_PASSWORD":
-        return <ChangePasswordForm />;
+        return <ChangePasswordForm onSuccess={Navigation.start}/>;
       case "DELETE_ACCOUNT":
         return <p>Delete Account logic goes here...</p>;
 
