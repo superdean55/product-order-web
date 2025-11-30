@@ -5,10 +5,10 @@ import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../ui/Button";
 import { useChangePasswordMutation } from "../../../hooks/queries/useAuthQuery";
-interface ChangePasswordFormProps{
+interface ChangePasswordFormProps {
   onSuccess: () => void;
 }
-export const ChangePasswordForm = ({onSuccess}: ChangePasswordFormProps) => {
+export const ChangePasswordForm = ({ onSuccess }: ChangePasswordFormProps) => {
   const { t } = useTranslation();
   const { mutateAsync: changePasswordMutaute, isPending: isChangingPassword } =
     useChangePasswordMutation();
@@ -42,7 +42,7 @@ export const ChangePasswordForm = ({onSuccess}: ChangePasswordFormProps) => {
         currentPassword: data.currentPassword,
         newPassword: data.password,
       });
-
+      console.log("RESPONSE", res);
       if (!res.success) {
         setError("root", { type: "server", message: res.message });
         return;
@@ -50,9 +50,10 @@ export const ChangePasswordForm = ({onSuccess}: ChangePasswordFormProps) => {
       onSuccess();
       reset();
       console.log(res.message);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
     } catch (err: any) {
-      setError("root", { type: "server", message: t("register.serverError") });
+      const message = err.response?.data?.message || t("register.serverError");
+  setError("root", { type: "server", message });
     }
   };
 
