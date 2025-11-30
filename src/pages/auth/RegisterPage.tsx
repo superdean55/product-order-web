@@ -5,12 +5,22 @@ import AuthCard from "../../components/ui/AuthCard";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegisterMutation } from "../../hooks/queries/useAuthQuery";
+import { ROUTE_PATHS } from "../../router/routes";
+import toast from "react-hot-toast";
 
 export default function RegisterPage() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { mutateAsync: registerMutate, isPending: isRegistering } =
+    useRegisterMutation();
   const RegisterSchema = z
     .object({
+      username: z
+      .string()
+      .min(3, t("register.errors.usernameMin")) 
+      .nonempty(t("register.errors.usernameRequired")),
       email: z
         .string()
         .email(t("register.errors.invalidEmail"))
@@ -24,11 +34,12 @@ export default function RegisterPage() {
     });
 
   type RegisterData = z.infer<typeof RegisterSchema>;
-  
+
   const {
     register,
     handleSubmit,
     setError,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<RegisterData>({
     resolver: zodResolver(RegisterSchema),
@@ -37,23 +48,28 @@ export default function RegisterPage() {
 
   const onSubmit = async (data: RegisterData) => {
     try {
-      await new Promise((r) => setTimeout(r, 800));
+      const res = await registerMutate({
+        username: data.username,
+        email: data.email,
+        password: data.password,
+      });
 
-      console.log("Registration successful:", data);
-
-      // Demo error
-      if (data.email === "exists@example.com") {
+      if (!res.success) {
         setError("root", {
           type: "server",
-          message: t("register.emailExists"),
+          message: t("register.serverError"),
         });
-        return;
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (err) {
+      toast.success(res.message);
+      reset();
+      navigate(ROUTE_PATHS.HOME);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      const message = err.response?.data?.message || t("register.serverError");
+      toast.error(message);
       setError("root", {
         type: "server",
-        message: t("register.serverError"),
+        message,
       });
     }
   };
@@ -71,6 +87,14 @@ export default function RegisterPage() {
       )}
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          label={t("register.usernameLabel")}
+          type="text"
+          placeholder={t("register.usernamePlaceholder")}
+          {...register("username")}
+          error={errors.username?.message}
+        />
+
         <Input
           label={t("register.emailLabel")}
           type="email"
@@ -97,10 +121,12 @@ export default function RegisterPage() {
 
         <Button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || isRegistering}
           className="bg-blue-600 dark:bg-gray-700 hover:bg-blue-700 dark:hover:bg-gray-500"
         >
-          {isSubmitting ? t("register.loading") : t("register.submit")}
+          {isSubmitting || isRegistering
+            ? t("register.loading")
+            : t("register.submit")}
         </Button>
       </form>
 

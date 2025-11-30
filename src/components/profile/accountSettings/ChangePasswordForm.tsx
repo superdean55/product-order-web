@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../ui/Button";
 import { useChangePasswordMutation } from "../../../hooks/queries/useAuthQuery";
+import toast from "react-hot-toast";
 interface ChangePasswordFormProps {
   onSuccess: () => void;
 }
@@ -42,18 +43,22 @@ export const ChangePasswordForm = ({ onSuccess }: ChangePasswordFormProps) => {
         currentPassword: data.currentPassword,
         newPassword: data.password,
       });
-      console.log("RESPONSE", res);
+
       if (!res.success) {
         setError("root", { type: "server", message: res.message });
         return;
       }
+
+      toast.success(res.message);
       onSuccess();
       reset();
-      console.log(res.message);
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
     } catch (err: any) {
+
       const message = err.response?.data?.message || t("register.serverError");
-  setError("root", { type: "server", message });
+      toast.error(message);
+      setError("root", { type: "server", message });
     }
   };
 

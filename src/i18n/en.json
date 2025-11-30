@@ -14,6 +14,8 @@
   },
   "register": {
     "title": "Register",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Enter your username",
     "emailLabel": "Email",
     "passwordLabel": "Password",
     "confirmPasswordLabel": "Confirm Password",
@@ -27,6 +29,8 @@
     "haveAccount": "Already have an account?",
     "login": "Login",
     "errors": {
+      "usernameMin": "Enter at least 3 letters",
+      "usernameRequired": "Username is required",
       "invalidEmail": "Please enter a valid email address",
       "requiredEmail": "Email is required",
       "passwordMin": "Password must be at least 6 characters",
