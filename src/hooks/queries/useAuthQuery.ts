@@ -11,23 +11,23 @@ import type {
 import { useAuthStore } from "../../store/auth.store";
 
 export const useLoginMutation = () => {
-  const setUser = useAuthStore((state) => state.setUser);
+  const setUserAndToken = useAuthStore((state) => state.setUserAndToken);
 
   return useMutation({
     mutationFn: (body: LoginInput) => authApi.login(body),
     onSuccess: (data: LoginResponse) => {
-      setUser(data.data.user, data.data.token);
+      if (data.success) setUserAndToken(data.data.user, data.data.token);
     },
   });
 };
 
 export const useRegisterMutation = () => {
-  const setUser = useAuthStore((state) => state.setUser);
+  const setUserAndToken = useAuthStore((state) => state.setUserAndToken);
 
   return useMutation({
     mutationFn: (body: RegisterInput) => authApi.register(body),
     onSuccess: (data: RegisterResponse) => {
-      setUser(data.data.user, data.data.token);
+      if (data.success) setUserAndToken(data.data.user, data.data.token);
     },
   });
 };
@@ -46,8 +46,6 @@ export const useLogoutMutation = () => {
 export const useChangePasswordMutation = () => {
   return useMutation<ChangePasswordResponse, Error, ChangePasswordInput>({
     mutationFn: (body: ChangePasswordInput) => authApi.changePassword(body),
-    onSuccess: () => {
-      
-    },
+    onSuccess: () => {},
   });
-}
+};

@@ -5,7 +5,8 @@ import type { User } from "../api/types/user";
 interface AuthState {
   user: User | null;
   token: string | null;
-  setUser: (user: User, token: string) => void;
+  setUserAndToken: (user: User | null, token: string | null) => void;
+  setUser: (user: User | null) => void;
   setUserImageUrl: (imageUrl: string | null) => void;
   logout: () => void;
 }
@@ -17,7 +18,9 @@ export const useAuthStore = create<AuthState>()(
         user: null,
         token: null,
 
-        setUser: (user: User, token: string) => set({ user, token }),
+        setUserAndToken: (user: User | null, token: string | null) =>
+          set({ user, token }),
+        setUser: (user: User | null) => set({ user }),
         logout: () => set({ user: null, token: null }),
 
         setUserImageUrl: (imageUrl: string | null) =>

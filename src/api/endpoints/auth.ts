@@ -6,5 +6,5 @@ export const authApi = {
   register: (body: RegisterInput) => client.post<RegisterResponse, RegisterInput>("/auth/register", body),
   logout: () => client.post<LogoutResponse, undefined>("/auth/logout"),
   changePassword: (body:ChangePasswordInput
-  ) => client.put<ChangePasswordResponse, ChangePasswordInput>("auth/change-password", body),
+  ) => client.put<ChangePasswordResponse, ChangePasswordInput>("/auth/change-password", body),
 };

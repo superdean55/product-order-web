@@ -1,3 +1,4 @@
+import type { ApiResponse } from "./api";
 import type { User } from "./user";
 
 export type LoginInput = {
@@ -5,11 +6,7 @@ export type LoginInput = {
   password: string;
 };
 
-export type LoginResponse = {
-  success: boolean;
-  message: string;
-  data: { user: User; token: string };
-};
+export type LoginResponse = ApiResponse<{ user: User; token: string }>;
 
 export type RegisterInput = {
   username: string;
@@ -17,35 +14,13 @@ export type RegisterInput = {
   password: string;
 };
 
-export type RegisterResponse = {
-  success: boolean;
-  message: string;
-  data: { user: User; token: string };
-};
+export type RegisterResponse = ApiResponse<{ user: User; token: string }>;
 
-export type LogoutResponse = {
-  success: boolean;
-  message: string;
-  data: null;
-};
+export type LogoutResponse = ApiResponse<null>;
 
 export type ChangePasswordInput = {
-  currentPassword: string,
-  newPassword: string,
-}
-
-export type ChangePasswordSuccess = {
-  success: true;
-  message: string;
-  data: null;
+  currentPassword: string;
+  newPassword: string;
 };
 
-export type ChangePasswordError = {
-  success: false;
-  message: string;
-  errors?: Record<string, unknown> | null;
-};
-export type ChangePasswordResponse =
-  | ChangePasswordSuccess
-  | ChangePasswordError;
-
+export type ChangePasswordResponse = ApiResponse<null>;

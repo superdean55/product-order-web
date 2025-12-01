@@ -53,7 +53,7 @@ export const ChangePasswordForm = ({ onSuccess }: ChangePasswordFormProps) => {
       onSuccess();
       reset();
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
 
       const message = err.response?.data?.message || t("register.serverError");
