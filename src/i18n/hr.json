@@ -45,13 +45,14 @@
     "currentTheme": "Trenutna tema",
 
     "light": "Svijetla",
-    "dark": "Tamna"
+    "dark": "Tamna",
+    "modalClose": "Zatvori"
   },
   "languages": {
     "croatian": "Hrvatski",
     "english": "Engleski"
   },
-  "profile":{
+  "profile": {
     "title": "Korisnički profil",
     "username": "Korisničko ime",
     "email": "Email",
@@ -61,7 +62,7 @@
     "status": "Status",
     "statusActive": "Aktivan",
     "InvalidDate": "Neispravan Datum",
-    "sections":{
+    "sections": {
       "personalInformation": "Osobne Informacije",
       "accountSettings": "Postavke Računa"
     },
@@ -78,7 +79,7 @@
         "altProfileImage": "profilna slika"
       },
       "settings": {
-        "manu":{
+        "manu": {
           "changePassword": "Promjeni lozinku",
           "deleteAccount": "Obriši profil"
         },
@@ -91,6 +92,17 @@
           "confirmPasswordPlaceholder": "Unesi lozinku",
           "submit": "Promjeni",
           "loading": "Mjenjam..."
+        },
+        "deleteAccount": {
+          "deleteButtonTitle": "Obriši",
+          "deleting": "Brisanje...",
+          "deleteButtonLabel": "Obriši profil",
+          "warning": "Upozorenje",
+          "warningText": "Ova radnja je trajna i ne može se poništiti. Svi vaši podaci bit će odmah obrisani. Jeste li sigurni da želite nastaviti?",
+          "modalTitle": "Brisanje Profila",
+          "modalWarning": "Jeste li sigurni da želite obristai profil?",
+          "modalAccept": "Da",
+          "modalClose": "Ne"
         }
       },
       "logout": "Odjava",

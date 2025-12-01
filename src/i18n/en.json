@@ -47,7 +47,8 @@
     "currentTheme": "Current theme",
 
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "modalClose": "Close"
   },
   "languages": {
     "english": "English",
@@ -80,7 +81,7 @@
         "altProfileImage": "profile image"
       },
       "settings": {
-        "manu":{
+        "manu": {
           "changePassword": "Change password",
           "deleteAccount": "Delete account"
         },
@@ -93,6 +94,17 @@
           "confirmPasswordPlaceholder": "Enter new password",
           "submit": "Change",
           "loading": "Changing..."
+        },
+        "deleteAccount": {
+          "deleteButtonTitle": "Delete",
+          "deleting": "Deleting",
+          "deleteButtonLabel": "Delete account:",
+          "warning": "Warning",
+          "warningText": "This action is permanent and cannot be undone. All your data will be immediately deleted. Are you sure you wish to proceed?",
+          "modalTitle": "Delete Account",
+          "modalWarning:": "Are you sure you want to delete your account?",
+          "modalAccept": "Yes",
+          "modalClose": "No"
         }
       },
       "logout": "Logout",

@@ -5,6 +5,7 @@ import { ChangePasswordForm } from "../../components/profile/accountSettings/Cha
 import { ChevronLeft } from "lucide-react";
 import { useViewStackNavigation } from "../../hooks/view/useViewStackNavigation";
 import { useTranslation } from "react-i18next";
+import { DeleteAccount } from "../../components/profile/accountSettings/DeleteAccount";
 
 export const ProfilePage = () => {
   const { activeView, Navigation } = useViewStackNavigation(
@@ -34,7 +35,7 @@ export const ProfilePage = () => {
       case "CHANGE_PASSWORD":
         return <ChangePasswordForm onSuccess={Navigation.start}/>;
       case "DELETE_ACCOUNT":
-        return <p>Delete Account logic goes here...</p>;
+        return <DeleteAccount/>
 
       default:
         return (
