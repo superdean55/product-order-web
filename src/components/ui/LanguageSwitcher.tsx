@@ -2,6 +2,7 @@ import Button from "../ui/Button";
 import "flag-icons/css/flag-icons.min.css";
 import { useLanguage } from "../../context/useLanguage";
 import { useTranslation } from "react-i18next";
+import { ButtonColor } from "../../constants/buttonColors";
 
 export default function LanguageSelector() {
   const { t } = useTranslation();
@@ -17,12 +18,9 @@ export default function LanguageSelector() {
       {languages.map((lang) => (
         <Button
           key={lang.code}
+          buttonColor={language === lang.code ? ButtonColor.selected : ButtonColor.regular}
           onClick={() => setLanguage(lang.code)}
-          className={`flex items-center justify-center gap-2 w-full ${
-            language === lang.code
-              ? "bg-blue-600 dark:bg-gray-900 text-white"
-              : "bg-gray-200 text-gray-800 hover:bg-gray-500 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-500"
-          }`}
+          className={`flex items-center justify-center gap-2 w-full`}
         >
           <span className={`fi fi-${lang.flag} text-lg`}></span>
           <span className="pl-2">{lang.name}</span>

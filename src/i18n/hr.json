@@ -96,7 +96,6 @@
         "deleteAccount": {
           "deleteButtonTitle": "Obriši",
           "deleting": "Brisanje...",
-          "deleteButtonLabel": "Obriši profil",
           "warning": "Upozorenje",
           "warningText": "Ova radnja je trajna i ne može se poništiti. Svi vaši podaci bit će odmah obrisani. Jeste li sigurni da želite nastaviti?",
           "modalTitle": "Brisanje Profila",

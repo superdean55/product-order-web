@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../hooks/queries/useAuthQuery";
 import { ROUTE_PATHS } from "../../router/routes";
+import { ButtonColor } from "../../constants/buttonColors";
 
 type LoginData = {
   email: string;
@@ -31,11 +32,11 @@ export default function LoginPage() {
 
   const onSubmit: SubmitHandler<LoginData> = async (data) => {
     try {
-      const serverResponse = await mutateAsync(data); 
+      const serverResponse = await mutateAsync(data);
       console.log("Login successful:", serverResponse);
       reset();
       navigate(ROUTE_PATHS.HOME);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError("root", {
         type: "server",
@@ -72,9 +73,9 @@ export default function LoginPage() {
         />
 
         <Button
+          buttonColor={ButtonColor.primary}
           type="submit"
           disabled={isSubmitting}
-          className="bg-blue-600 dark:bg-gray-700 hover:bg-blue-700 dark:hover:bg-gray-500"
         >
           {isSubmitting ? t("login.loading") : t("login.submit")}
         </Button>

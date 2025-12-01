@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { ROUTE_PATHS } from "../../../router/routes";
 import { useAuthStore } from "../../../store/auth.store";
+import { ButtonColor } from "../../../constants/buttonColors";
 
 export const DeleteAccount = () => {
   const { t } = useTranslation();
@@ -32,22 +33,19 @@ export const DeleteAccount = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col gap-2 items-start">
-        <div className="w-full flex flex-row gap-2 text-red-800">
+      <div className="w-full flex flex-col gap-4 items-start">
+        <div className="w-full flex flex-row justify-center gap-2 text-red-800">
           <TriangleAlert className="w-5 h-5 sm:w-6 sm:h-6" />
           <p>{t("profile.actions.settings.deleteAccount.warning")}</p>
         </div>
         <p className="text-orange-400">
           {t("profile.actions.settings.deleteAccount.warningText")}
         </p>
-        <div className="w-full flex flex-row gap-2  items-center">
-          <p className="">
-            {t("profile.actions.settings.deleteAccount.deleteButtonLabel")}
-          </p>
+        <div className="w-full flex flex-row gap-2 justify-center items-center">
           <Button
+            buttonColor={ButtonColor.danger}
             onClick={() => setIsOpenModal(true)}
             disabled={isPending}
-            className="bg-red-900 hover:bg-red-800"
           >
             {t("profile.actions.settings.deleteAccount.deleteButtonTitle")}
           </Button>

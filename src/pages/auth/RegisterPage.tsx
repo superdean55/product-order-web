@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../../hooks/queries/useAuthQuery";
 import { ROUTE_PATHS } from "../../router/routes";
 import toast from "react-hot-toast";
+import { ButtonColor } from "../../constants/buttonColors";
 
 export default function RegisterPage() {
   const { t } = useTranslation();
@@ -18,9 +19,9 @@ export default function RegisterPage() {
   const RegisterSchema = z
     .object({
       username: z
-      .string()
-      .min(3, t("register.errors.usernameMin")) 
-      .nonempty(t("register.errors.usernameRequired")),
+        .string()
+        .min(3, t("register.errors.usernameMin"))
+        .nonempty(t("register.errors.usernameRequired")),
       email: z
         .string()
         .email(t("register.errors.invalidEmail"))
@@ -120,9 +121,9 @@ export default function RegisterPage() {
         />
 
         <Button
+          buttonColor={ButtonColor.primary}
           type="submit"
           disabled={isSubmitting || isRegistering}
-          className="bg-blue-600 dark:bg-gray-700 hover:bg-blue-700 dark:hover:bg-gray-500"
         >
           {isSubmitting || isRegistering
             ? t("register.loading")

@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { PROFILE_VIEWS, type AccountView } from "../../types/ui.types";
+import { type AccountView } from "../../types/ui.types";
 import { MainAccountScreen } from "../../components/profile/MainAccountScreen";
 import { ChangePasswordForm } from "../../components/profile/accountSettings/ChangePasswordForm";
 import { ChevronLeft } from "lucide-react";
 import { useViewStackNavigation } from "../../hooks/view/useViewStackNavigation";
 import { useTranslation } from "react-i18next";
 import { DeleteAccount } from "../../components/profile/accountSettings/DeleteAccount";
+import { PROFILE_VIEWS } from "../../constants/profileViews";
 
 export const ProfilePage = () => {
   const { activeView, Navigation } = useViewStackNavigation(
@@ -62,7 +63,7 @@ export const ProfilePage = () => {
               <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
-            <h2 className="w-full text-xl text-center font-bold">
+            <h2 className="w-full text-xl text-center font-bold text-gray-700 dark:text-gray-100">
               {currentTitle}
             </h2>
           </div>

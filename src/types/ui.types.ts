@@ -1,7 +1,7 @@
-export const PROFILE_VIEWS = {
-    MAIN: 'profile.viewTitles.main', 
-    CHANGE_PASSWORD: 'profile.viewTitles.changePassword',
-    DELETE_ACCOUNT: 'profile.viewTitles.deleteAccount',
-} as const;
+import type { ButtonColor } from "../constants/buttonColors";
+import type { PROFILE_VIEWS } from "../constants/profileViews";
+
+
 
 export type AccountView = keyof typeof PROFILE_VIEWS;
+export type ButtonVariant = typeof ButtonColor[keyof typeof ButtonColor];

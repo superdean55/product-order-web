@@ -20,10 +20,9 @@ export const FloatingActionButton = ({
   const baseClasses = `
     absolute ${position} 
     text-gray-700 dark:text-gray-100
-    bg-gray-300 dark:bg-gray-500
+    bg-black/30 hover:bg-black/50
     p-2 rounded-full shadow-lg 
     transition-colors duration-200 
-    hover:bg-gray-400 dark:hover:bg-gray-400
     focus:outline-none focus:ring-2 focus:ring-gray-700 cursor-pointer
     ${className}
   `;

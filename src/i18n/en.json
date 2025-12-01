@@ -98,11 +98,10 @@
         "deleteAccount": {
           "deleteButtonTitle": "Delete",
           "deleting": "Deleting",
-          "deleteButtonLabel": "Delete account:",
           "warning": "Warning",
           "warningText": "This action is permanent and cannot be undone. All your data will be immediately deleted. Are you sure you wish to proceed?",
           "modalTitle": "Delete Account",
-          "modalWarning:": "Are you sure you want to delete your account?",
+          "modalWarning": "Are you sure you want to delete your account?",
           "modalAccept": "Yes",
           "modalClose": "No"
         }

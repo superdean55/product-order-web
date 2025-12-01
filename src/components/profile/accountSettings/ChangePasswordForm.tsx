@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../ui/Button";
 import { useChangePasswordMutation } from "../../../hooks/queries/useAuthQuery";
 import toast from "react-hot-toast";
+import { ButtonColor } from "../../../constants/buttonColors";
 interface ChangePasswordFormProps {
   onSuccess: () => void;
 }
@@ -55,7 +56,6 @@ export const ChangePasswordForm = ({ onSuccess }: ChangePasswordFormProps) => {
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-
       const message = err.response?.data?.message || t("register.serverError");
       toast.error(message);
       setError("root", { type: "server", message });
@@ -103,9 +103,9 @@ export const ChangePasswordForm = ({ onSuccess }: ChangePasswordFormProps) => {
           </p>
         )}
         <Button
+          buttonColor={ButtonColor.primary}
           type="submit"
           disabled={isSubmitting || isChangingPassword}
-          className="bg-blue-600 dark:bg-gray-600 hover:bg-blue-700 dark:hover:bg-gray-500"
         >
           {isSubmitting || isChangingPassword
             ? t("profile.actions.settings.changePassword.loading")
