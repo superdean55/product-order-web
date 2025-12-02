@@ -73,6 +73,7 @@
     "viewTitles": {
       "main": "Profil",
       "changePassword": "Promjeni lozinku",
+      "changeEmail": "Promjenite vaš email",
       "deleteAccount": "Obriši profil",
       "updateUser": "Ažurirajte vaše osobne podatke"
     },
@@ -105,6 +106,7 @@
       "settings": {
         "manu": {
           "changePassword": "Promjeni lozinku",
+          "changeEmail": "Promjeni email",
           "deleteAccount": "Obriši profil"
         },
         "changePassword": {
@@ -116,6 +118,17 @@
           "confirmPasswordPlaceholder": "Unesi lozinku",
           "submit": "Promjeni",
           "loading": "Mjenjam..."
+        },
+        "changeEmail": {
+          "currentEmail": "Trenutni email",
+          "emailLabel": "Novi email",
+          "emailPlaceholder": "Unesite vaš email",
+          "submit": "Promejni",
+          "submiting": "Mjenjam...",
+          "errors": {
+            "invalidEmail": "Molim vas unesite ispravan email",
+            "requiredEmail": "Email je obavezan"
+          }
         },
         "deleteAccount": {
           "deleteButtonTitle": "Obriši",

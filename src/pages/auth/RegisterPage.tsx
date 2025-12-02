@@ -64,7 +64,7 @@ export default function RegisterPage() {
       toast.success(res.message);
       reset();
       navigate(ROUTE_PATHS.HOME);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       const message = err.response?.data?.message || t("register.serverError");
       toast.error(message);

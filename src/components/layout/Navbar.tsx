@@ -39,7 +39,7 @@ export default function Navbar() {
           )}
 
           <button onClick={toggleSettings}>
-            <Settings className="w-6 h-6 hover:text-blue-400 dark:hover:text-gray-400" />
+            <Settings className="w-6 h-6 hover:text-blue-400 dark:hover:text-gray-400 cursor-pointer" />
           </button>
         </div>
       </nav>

@@ -13,8 +13,8 @@ export const PersonalInformation = ({
   onSelect,
 }: PersonalInformationProps) => {
   const { t } = useTranslation();
+  
   const handleEdit = () => {
-    console.log("UPDATE_USER");
     onSelect("UPDATE_USER");
   };
 

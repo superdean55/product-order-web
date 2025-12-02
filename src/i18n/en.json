@@ -75,6 +75,7 @@
     "viewTitles": {
       "main": "Account",
       "changePassword": "Change password",
+      "changeEmail": "Change your email",
       "deleteAccount": "Delete account",
       "updateUser": "Update your personal information"
     },
@@ -107,6 +108,7 @@
       "settings": {
         "manu": {
           "changePassword": "Change password",
+          "changeEmail": "Change Email",
           "deleteAccount": "Delete account"
         },
         "changePassword": {
@@ -118,6 +120,17 @@
           "confirmPasswordPlaceholder": "Enter new password",
           "submit": "Change",
           "loading": "Changing..."
+        },
+        "changeEmail": {
+          "currentEmail": "Current email",
+          "emailLabel": "New email",
+          "emailPlaceholder": "Enter your email",
+          "submit": "Change",
+          "submiting": "Changing...",
+          "errors": {
+            "invalidEmail": "Please enter a valid email address",
+            "requiredEmail": "Email is required"
+          }
         },
         "deleteAccount": {
           "deleteButtonTitle": "Delete",

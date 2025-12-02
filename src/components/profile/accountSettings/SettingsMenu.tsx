@@ -19,6 +19,11 @@ export const SettingsMenu = ({ onSelect }: SettingsMenuProps) => {
         </Button>
       </div>
       <Button
+        onClick={() => onSelect("CHANGE_EMAIL")}
+      >
+        {t("profile.actions.settings.manu.changeEmail")}
+      </Button>
+      <Button
         onClick={() => onSelect("DELETE_ACCOUNT")}
       >
         {t("profile.actions.settings.manu.deleteAccount")}

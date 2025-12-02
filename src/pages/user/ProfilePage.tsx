@@ -9,6 +9,7 @@ import { DeleteAccount } from "../../components/profile/accountSettings/DeleteAc
 import { PROFILE_VIEWS } from "../../constants/profileViews";
 import { UpdateUserDataForm } from "../../components/profile/UpdateUserDataForm";
 import { useAuthStore } from "../../store/auth.store";
+import { ChangeEmailForm } from "../../components/profile/accountSettings/ChangeEmailForm";
 
 export const ProfilePage = () => {
   const user = useAuthStore((state) => state.user);
@@ -20,7 +21,7 @@ export const ProfilePage = () => {
   );
   const translationKey = PROFILE_VIEWS[activeView as AccountView];
   const currentTitle = t(translationKey);
-  
+
   if (!user) return null;
   const toggleSection = () => {
     setIsSettingsSectionOpen((prev) => !prev);
@@ -39,6 +40,10 @@ export const ProfilePage = () => {
         );
       case "CHANGE_PASSWORD":
         return <ChangePasswordForm onSuccess={Navigation.start} />;
+      case "CHANGE_EMAIL":
+        return (
+          <ChangeEmailForm onSuccess={Navigation.start} email={user.email} />
+        );
       case "DELETE_ACCOUNT":
         return <DeleteAccount />;
       case "UPDATE_USER":

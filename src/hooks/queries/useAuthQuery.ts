@@ -1,6 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { authApi } from "../../api/endpoints/auth";
 import type {
+  ChangeEmailInput,
+  ChangeEmailResponse,
   ChangePasswordInput,
   ChangePasswordResponse,
   LoginInput,
@@ -47,5 +49,15 @@ export const useChangePasswordMutation = () => {
   return useMutation<ChangePasswordResponse, Error, ChangePasswordInput>({
     mutationFn: (body: ChangePasswordInput) => authApi.changePassword(body),
     onSuccess: () => {},
+  });
+};
+
+export const useChangeEmailMutation = () => {
+  const setEmail = useAuthStore((state) => state.setEmail);
+  return useMutation({
+    mutationFn: (body: ChangeEmailInput) => authApi.changeEmail(body),
+    onSuccess: (data: ChangeEmailResponse) => {
+      if (data.success) setEmail(data.data.email);
+    },
   });
 };

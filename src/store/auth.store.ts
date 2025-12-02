@@ -8,6 +8,7 @@ interface AuthState {
   setUserAndToken: (user: User | null, token: string | null) => void;
   setUser: (user: User | null) => void;
   setUserImageUrl: (imageUrl: string | null) => void;
+  setEmail: (email: string) => void;
   logout: () => void;
 }
 
@@ -20,7 +21,9 @@ export const useAuthStore = create<AuthState>()(
 
         setUserAndToken: (user: User | null, token: string | null) =>
           set({ user, token }),
+
         setUser: (user: User | null) => set({ user }),
+
         logout: () => set({ user: null, token: null }),
 
         setUserImageUrl: (imageUrl: string | null) =>
@@ -30,6 +33,17 @@ export const useAuthStore = create<AuthState>()(
               user: {
                 ...state.user,
                 imageUrl: imageUrl,
+              },
+            };
+          }),
+
+        setEmail: (email: string) =>
+          set((state) => {
+            if (!state.user) return state;
+            return {
+              user: {
+                ...state.user,
+                email: email,
               },
             };
           }),
