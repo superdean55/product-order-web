@@ -73,9 +73,29 @@
     "viewTitles": {
       "main": "Profil",
       "changePassword": "Promjeni lozinku",
-      "deleteAccount": "Obriši profil"
+      "deleteAccount": "Obriši profil",
+      "updateUser": "Ažurirajte vaše osobne podatke"
     },
     "actions": {
+      "updateUser": {
+        "firstNameLabel": "Ime",
+        "firstNamePlaceholder": "Unesite vaš ime",
+        "lastNameLabel": "Prezime",
+        "lastNamePlaceholder": "Unesite vaše prezime",
+        "phoneNumberLabel": "Telefonski broj",
+        "phoneNumberPlaceholder": "Unesite vaš broj telefona",
+        "dateOfBirthLabel": "Datum rođenja",
+        "updating": "Ažuriram...",
+        "update": "Ažuriraj",
+        "errors": {
+          "firstNameMin": "Minimalno 2 slova",
+          "firstNameMax": "Maksimalno 50 slova",
+          "lastNameMin": "Minimalno 2 slova",
+          "flastNameMax": "Maksimalno 50 slova",
+          "invalidPhoneNumber": "Neispravan format telefonskog broja",
+          "invalidDate": "Neispravan format datuma"
+        }
+      },
       "image": {
         "add": "Dodaj sliku",
         "remove": "Obriši sliku",

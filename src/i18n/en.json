@@ -75,9 +75,29 @@
     "viewTitles": {
       "main": "Account",
       "changePassword": "Change password",
-      "deleteAccount": "Delete account"
+      "deleteAccount": "Delete account",
+      "updateUser": "Update your personal information"
     },
     "actions": {
+      "updateUser": {
+        "firstNameLabel": "First name",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastNameLabel": "Last name",
+        "lastNamePlaceholder": "Enter your last name",
+        "phoneNumberLabel": "Phon number",
+        "phoneNumberPlaceholder": "Enter your phone number",
+        "dateOfBirthLabel": "Date of birth",
+        "updating": "Updating...",
+        "update": "Update",
+        "errors": {
+          "firstNameMin": "Minimum 2 letters",
+          "firstNameMax": "Maximum 50 letters",
+          "lastNameMin": "Minimum 2 letters",
+          "flastNameMax": "Maximum 50 letters",
+          "invalidPhoneNumber": "Incorrect phone number format",
+          "invalidDate": "Invalid date format"
+        }
+      },
       "image": {
         "add": "Add image",
         "remove": "Remove image",

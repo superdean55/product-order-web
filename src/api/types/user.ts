@@ -15,8 +15,10 @@ export type User = {
 };
 
 export type UpdateUserInput = {
-  username: string;
-  email: string;
+  firstName: string | null;
+  lastName: string | null;
+  phoneNumber: string | null;
+  dateOfBirth: string | null;
 };
 
 export type GetUserResponse = ApiResponse<{ user: User }>;

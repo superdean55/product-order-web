@@ -1,13 +1,22 @@
 import { useTranslation } from "react-i18next";
 import { ProfileData, type UserProfileData } from "./ProfileData";
 import { ProfileSection } from "./ProfileSection";
-interface PersonalInformationProps{
-    user: UserProfileData
+import type { AccountView } from "../../types/ui.types";
+
+interface PersonalInformationProps {
+  user: UserProfileData;
+  onSelect: (view: AccountView) => void;
 }
 
-export const PersonalInformation = ({user}: PersonalInformationProps) => {
+export const PersonalInformation = ({
+  user,
+  onSelect,
+}: PersonalInformationProps) => {
   const { t } = useTranslation();
-  const handleEdit = () => {};
+  const handleEdit = () => {
+    console.log("UPDATE_USER");
+    onSelect("UPDATE_USER");
+  };
 
   const dropdownMenuItems = [
     {

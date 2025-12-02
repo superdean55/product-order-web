@@ -7,18 +7,21 @@ import { useViewStackNavigation } from "../../hooks/view/useViewStackNavigation"
 import { useTranslation } from "react-i18next";
 import { DeleteAccount } from "../../components/profile/accountSettings/DeleteAccount";
 import { PROFILE_VIEWS } from "../../constants/profileViews";
+import { UpdateUserDataForm } from "../../components/profile/UpdateUserDataForm";
+import { useAuthStore } from "../../store/auth.store";
 
 export const ProfilePage = () => {
-  const { activeView, Navigation } = useViewStackNavigation(
-    "MAIN" as AccountView
-  );
+  const user = useAuthStore((state) => state.user);
   const [isSettingsSectionOpen, setIsSettingsSectionOpen] = useState(false);
   const { t } = useTranslation();
 
+  const { activeView, Navigation } = useViewStackNavigation(
+    "MAIN" as AccountView
+  );
   const translationKey = PROFILE_VIEWS[activeView as AccountView];
-
   const currentTitle = t(translationKey);
-
+  
+  if (!user) return null;
   const toggleSection = () => {
     setIsSettingsSectionOpen((prev) => !prev);
   };
@@ -28,19 +31,23 @@ export const ProfilePage = () => {
       case "MAIN":
         return (
           <MainAccountScreen
+            user={user}
             onSelect={Navigation.push}
             isSettingsSectionOpen={isSettingsSectionOpen}
             toggleSection={toggleSection}
           />
         );
       case "CHANGE_PASSWORD":
-        return <ChangePasswordForm onSuccess={Navigation.start}/>;
+        return <ChangePasswordForm onSuccess={Navigation.start} />;
       case "DELETE_ACCOUNT":
-        return <DeleteAccount/>
+        return <DeleteAccount />;
+      case "UPDATE_USER":
+        return <UpdateUserDataForm onSuccess={Navigation.start} user={user} />;
 
       default:
         return (
           <MainAccountScreen
+            user={user}
             onSelect={Navigation.push}
             isSettingsSectionOpen={isSettingsSectionOpen}
             toggleSection={toggleSection}

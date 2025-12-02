@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { useAuthStore } from "../../store/auth.store";
 import Button from "../../components/ui/Button";
 import { useLogoutMutation } from "../../hooks/queries/useAuthQuery";
 import { useTranslation } from "react-i18next";
@@ -10,18 +9,21 @@ import { useUploadUserImageMutation } from "../../hooks/queries/useUserImageQuer
 import type { AccountView } from "../../types/ui.types";
 import { SettingsMenu } from "./accountSettings/SettingsMenu";
 import { PersonalInformation } from "./PersonalInformation";
-interface MainAccountScreenProps {
+import type { User } from "../../api/types/user";
+
+interface MainAccountScreenProps { 
+  user: User;
   onSelect: (view: AccountView) => void;
   isSettingsSectionOpen: boolean;
   toggleSection: () => void;
 }
 
 export const MainAccountScreen = ({
+  user,
   onSelect,
   isSettingsSectionOpen,
   toggleSection,
 }: MainAccountScreenProps) => {
-  const user = useAuthStore((state) => state.user);
   const { mutate: logoutMutate, isPending: isLoggingOut } = useLogoutMutation();
   const { mutate: uploadMutate } = useUploadUserImageMutation();
   const { t } = useTranslation();
@@ -76,7 +78,7 @@ export const MainAccountScreen = ({
         accept="image/*"
         onChange={handleFileChange}
       />
-      <PersonalInformation user={user} />
+      <PersonalInformation user={user} onSelect={onSelect}/>
       <ProfileSection
         label={t("profile.sections.accountSettings")}
         isSectionOpen={isSettingsSectionOpen}
