@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import type { AccountView } from "../../../types/ui.types";
+import Button from "../../ui/Button";
+
 
 interface SettingsMenuProps {
   onSelect: (view: AccountView) => void;
@@ -8,21 +10,19 @@ interface SettingsMenuProps {
 export const SettingsMenu = ({ onSelect }: SettingsMenuProps) => {
   const { t } = useTranslation();
   return (
-    <div className="flex flex-col gap-2 items-start">
+    <div className="flex flex-col items-start">
       <div>
-        <button
-          className="px-2 rounded-lg text-gray-400 hover:text-gray-300 hover:bg-gray-500 cursor-pointer"
+        <Button
           onClick={() => onSelect("CHANGE_PASSWORD")}
         >
           {t("profile.actions.settings.manu.changePassword")}
-        </button>
+        </Button>
       </div>
-      <button
-        className="px-2 rounded-lg text-gray-400 hover:text-gray-300 hover:bg-gray-500 cursor-pointer"
+      <Button
         onClick={() => onSelect("DELETE_ACCOUNT")}
       >
         {t("profile.actions.settings.manu.deleteAccount")}
-      </button>
+      </Button>
     </div>
   );
 };

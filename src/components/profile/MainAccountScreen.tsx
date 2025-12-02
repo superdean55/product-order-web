@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef} from "react";
 import { useAuthStore } from "../../store/auth.store";
 import { ProfileData } from "../../components/profile/ProfileData";
 import Button from "../../components/ui/Button";
@@ -10,6 +10,7 @@ import { resizeImage } from "../../utils/imageUtils";
 import { useUploadUserImageMutation } from "../../hooks/queries/useUserImageQuery";
 import type { AccountView } from "../../types/ui.types";
 import { SettingsMenu } from "./accountSettings/SettingsMenu";
+import { KebabMenu } from "../ui/KebabMenu";
 interface MainAccountScreenProps {
   onSelect: (view: AccountView) => void;
   isSettingsSectionOpen: boolean;
@@ -26,9 +27,25 @@ export const MainAccountScreen = ({
   const { mutate: uploadMutate } = useUploadUserImageMutation();
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
+  
 
   if (!user) return null;
 
+  const handleEdit = () => {
+    
+  };
+
+  const kebabMenuItems = [
+    {
+      label: "edit",
+      action: handleEdit,
+    },
+  ];
+  const optionMenu = (
+    <KebabMenu
+      items={kebabMenuItems} 
+    />
+  );
   const handleLogout = () => {
     logoutMutate();
   };
@@ -61,8 +78,8 @@ export const MainAccountScreen = ({
       }
     }
   };
-  return (<div className="w-full flex flex-col gap-4">
-    
+  return (
+    <div className="w-full flex flex-col gap-4">
       <UserImage
         imageUrl={user.imageUrl}
         username={user.username}
@@ -76,7 +93,7 @@ export const MainAccountScreen = ({
         accept="image/*"
         onChange={handleFileChange}
       />
-      <ProfileSection label={t("profile.sections.personalInformation")}>
+      <ProfileSection label={t("profile.sections.personalInformation")} optionMenu={optionMenu}>
         <ProfileData user={user} />
       </ProfileSection>
       <ProfileSection

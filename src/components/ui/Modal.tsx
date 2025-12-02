@@ -47,7 +47,7 @@ export default function Modal({
           {isAcceptButton && (
             <Button
               onClick={onAccept}
-              className="w-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-md hover:bg-gray-500 dark:hover:bg-gray-500"
+              className="w-full"
             >
               {acceptButtonLabel}
             </Button>
@@ -55,7 +55,7 @@ export default function Modal({
           {isRejectButton && (
             <Button
               onClick={onReject}
-              className="w-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-md hover:bg-gray-500 dark:hover:bg-gray-500"
+              className="w-full"
             >
               {rejectButtonLabel}
             </Button>
@@ -63,7 +63,7 @@ export default function Modal({
           {isCloseButton && (
             <Button
               onClick={onClose}
-              className="w-full bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-md hover:bg-gray-500 dark:hover:bg-gray-500"
+              className="w-full"
             >
               {closeButtonLabel}
             </Button>
