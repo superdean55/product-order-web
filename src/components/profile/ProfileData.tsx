@@ -2,7 +2,7 @@ import React from "react";
 import { LabeledDataItem } from "../ui/LabeledDataItem";
 import { useTranslation } from "react-i18next";
 
-interface UserProfileData {
+export interface UserProfileData {
   username: string;
   email: string;
   role: string;

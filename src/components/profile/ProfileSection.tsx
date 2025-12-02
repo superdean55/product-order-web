@@ -1,24 +1,26 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
+import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
+import { KebabMenu } from "../ui/KebabMenu";
 
 interface ProfileSectionProps {
   label: string;
   isSectionOpen?: boolean;
   toggleIsSectionOpen?: () => void;
-  optionMenu?: React.ReactNode;
+  menuItems?: DropdownMenuItem[];
   children: React.ReactNode;
 }
 export const ProfileSection = ({
   label,
   isSectionOpen,
   toggleIsSectionOpen,
-  optionMenu,
+  menuItems,
   children,
 }: ProfileSectionProps) => {
   const isCollapsible =
     isSectionOpen !== undefined && toggleIsSectionOpen !== undefined;
   const isContentVisible = !isCollapsible || isSectionOpen;
   const Icon = isSectionOpen ? ChevronUp : ChevronDown;
-  const isOptionManu = optionMenu !== undefined ;
+  const isOptionManu = menuItems !== undefined;
   return (
     <>
       <div className="w-full flex flex-col items-start">
@@ -39,9 +41,8 @@ export const ProfileSection = ({
                 aria-label={isSectionOpen ? `Hide ${label}` : `Show ${label}`}
               />
             )}
-            
           </div>
-          {isOptionManu && optionMenu}
+          {isOptionManu && <KebabMenu items={menuItems}></KebabMenu>}
         </div>
         {isContentVisible && <div className="px-2 w-full py-1">{children}</div>}
       </div>

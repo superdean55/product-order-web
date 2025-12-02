@@ -30,8 +30,16 @@ export const Dropdown: React.FC<DropdownProps> = ({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [setIsOpen]);
+
+  if (!isOpen) return null;
+
   return (
-    isOpen && (
+    <>
+      <div
+        className="fixed inset-0 bg-black/30 z-20"
+        onClick={() => setIsOpen(false)}
+      />
+
       <div
         ref={dropdownRef}
         className={`flex flex-col absolute top-full right-0 z-30  min-w-48  bg-gray-400 dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 p-1`}
@@ -44,6 +52,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
           </DropdownItem>
         ))}
       </div>
-    )
+    </>
   );
 };

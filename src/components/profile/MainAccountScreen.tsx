@@ -1,6 +1,5 @@
-import React, { useRef} from "react";
+import React, { useRef } from "react";
 import { useAuthStore } from "../../store/auth.store";
-import { ProfileData } from "../../components/profile/ProfileData";
 import Button from "../../components/ui/Button";
 import { useLogoutMutation } from "../../hooks/queries/useAuthQuery";
 import { useTranslation } from "react-i18next";
@@ -10,7 +9,7 @@ import { resizeImage } from "../../utils/imageUtils";
 import { useUploadUserImageMutation } from "../../hooks/queries/useUserImageQuery";
 import type { AccountView } from "../../types/ui.types";
 import { SettingsMenu } from "./accountSettings/SettingsMenu";
-import { KebabMenu } from "../ui/KebabMenu";
+import { PersonalInformation } from "./PersonalInformation";
 interface MainAccountScreenProps {
   onSelect: (view: AccountView) => void;
   isSettingsSectionOpen: boolean;
@@ -27,25 +26,9 @@ export const MainAccountScreen = ({
   const { mutate: uploadMutate } = useUploadUserImageMutation();
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
-  
 
   if (!user) return null;
 
-  const handleEdit = () => {
-    
-  };
-
-  const kebabMenuItems = [
-    {
-      label: "edit",
-      action: handleEdit,
-    },
-  ];
-  const optionMenu = (
-    <KebabMenu
-      items={kebabMenuItems} 
-    />
-  );
   const handleLogout = () => {
     logoutMutate();
   };
@@ -93,9 +76,7 @@ export const MainAccountScreen = ({
         accept="image/*"
         onChange={handleFileChange}
       />
-      <ProfileSection label={t("profile.sections.personalInformation")} optionMenu={optionMenu}>
-        <ProfileData user={user} />
-      </ProfileSection>
+      <PersonalInformation user={user} />
       <ProfileSection
         label={t("profile.sections.accountSettings")}
         isSectionOpen={isSettingsSectionOpen}
