@@ -56,12 +56,16 @@
     "title": "Korisnički profil",
     "username": "Korisničko ime",
     "email": "Email",
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "phoneNumber": "Broj telefona",
+    "dateOfBirth": "Datum rođenja",
     "role": "Uloga",
     "registredSince": "Registriran od",
     "lastUpdated": "Posljednje ažurirano",
     "status": "Status",
     "statusActive": "Aktivan",
-    "InvalidDate": "Neispravan Datum",
+    "InvalidDate": "",
     "sections": {
       "personalInformation": "Osobne Informacije",
       "accountSettings": "Postavke Računa"

@@ -58,12 +58,16 @@
     "title": "Profile",
     "username": "Username",
     "email": "Email",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "phoneNumber": "Phon number",
+    "dateOfBirth": "Date of birth",
     "role": "Role",
     "registredSince": "Registred since",
     "lastUpdated": "Last updated",
     "status": "Status",
     "statusActive": "Active",
-    "InvalidDate": "Invalid date",
+    "InvalidDate": "",
     "sections": {
       "personalInformation": "Personal information",
       "accountSettings": "Profile settings"

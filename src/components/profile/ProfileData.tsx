@@ -5,6 +5,10 @@ import { useTranslation } from "react-i18next";
 export interface UserProfileData {
   username: string;
   email: string;
+  firstName: string | null;
+  lastName: string | null;
+  phoneNumber: string | null;
+  dateOfBirth: string | null;
   role: string;
   createdAt: string;
   updatedAt: string;
@@ -17,7 +21,10 @@ interface ProfileDataProps {
 export const ProfileData: React.FC<ProfileDataProps> = ({ user }) => {
   const { t } = useTranslation();
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) {
+      return "";
+    }
     try {
       return new Date(dateString).toLocaleDateString("hr-HR", {
         year: "numeric",
@@ -34,6 +41,16 @@ export const ProfileData: React.FC<ProfileDataProps> = ({ user }) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <LabeledDataItem label={t("profile.username")} value={user.username} />
       <LabeledDataItem label={t("profile.email")} value={user.email} />
+      <LabeledDataItem label={t("profile.firstName")} value={user.firstName} />
+      <LabeledDataItem label={t("profile.lastName")} value={user.lastName} />
+      <LabeledDataItem
+        label={t("profile.phoneNumber")}
+        value={user.phoneNumber}
+      />
+      <LabeledDataItem
+        label={t("profile.dateOfBirth")}
+        value={formatDate(user.dateOfBirth)}
+      />
       <LabeledDataItem
         label={t("profile.registredSince")}
         value={formatDate(user.createdAt)}
