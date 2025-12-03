@@ -29,6 +29,8 @@
     "haveAccount": "Već imate račun?",
     "login": "Prijava",
     "errors": {
+      "usernameMin": "Unesite minimalno 3 slova",
+      "usernameRequired": "Korisničko ime je obavezno",
       "invalidEmail": "Unesite ispravnu email adresu",
       "requiredEmail": "Email je obavezan",
       "passwordMin": "Lozinka mora imati najmanje 6 znakova",
@@ -98,10 +100,22 @@
         }
       },
       "image": {
-        "add": "Dodaj sliku",
-        "remove": "Obriši sliku",
-        "edit": "Izmjeni sliku",
-        "altProfileImage": "profilna slika"
+        "add": {
+          "title":"Dodaj sliku"
+        },
+        "remove": {
+          "title": "Obriši sliku",
+          "imageNotExist": "Slika koju želite obrisati ne postoji",
+          "modalTitle": "Brisanje vaše slike",
+          "modalWarning": "Jeste li sigurni da želite obrisati sliku?",
+          "modalAccept": "Da",
+          "modalClose": "Ne"
+        },
+        "edit": {
+          "title": "Izmjeni sliku"
+        },
+        "altProfileImage": "Profilna slika",
+        "serverError": "Interna greška servera"
       },
       "settings": {
         "manu": {

@@ -65,7 +65,7 @@ export const ChangeEmailForm = ({ onSuccess, email }: ChangeEmailFormProps) => {
             >
               {t("profile.actions.settings.changeEmail.currentEmail")}
             </p>
-            <p>{email}</p>
+            <p className="text-gray-700 dark:text-gray-100">{email}</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <Input

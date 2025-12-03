@@ -41,7 +41,7 @@ export const UserImage = ({
           <FloatingActionButton
             onClick={onImageEditClick}
             Icon={ImagePlus}
-            title={t("profile.actions.image.add")}
+            title={t("profile.actions.image.add.title")}
             position={FLOATING_POSITION.BOTTOM_RIGHT}
           />
         )}
@@ -49,7 +49,7 @@ export const UserImage = ({
           <FloatingActionButton
             onClick={onImageEditClick}
             Icon={Pencil}
-            title={t("profile.actions.image.edit")}
+            title={t("profile.actions.image.edit.title")}
             position={FLOATING_POSITION.BOTTOM_RIGHT}
           />
         )}
@@ -57,7 +57,7 @@ export const UserImage = ({
           <FloatingActionButton
             onClick={onImageRemoveClick}
             Icon={ImageMinus}
-            title={t("profile.actions.image.remove")}
+            title={t("profile.actions.image.remove.title")}
             position={FLOATING_POSITION.TOP_RIGHT}
           />
         )}

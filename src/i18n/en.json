@@ -100,10 +100,22 @@
         }
       },
       "image": {
-        "add": "Add image",
-        "remove": "Remove image",
-        "edit": "Change image",
-        "altProfileImage": "profile image"
+        "add": {
+          "title":"Login"
+        },
+        "remove": {
+          "title": "Remove image",
+          "imageNotExist": "The image you want to delete does not exist",
+          "modalTitle": "Delete your image",
+          "modalWarning": "Are you sure you want to delete your image?",
+          "modalAccept": "Yes",
+          "modalClose": "No"
+        },
+        "edit": {
+          "title": "Change image"
+        },
+        "altProfileImage": "profile image",
+        "serverError": "Internal server error"
       },
       "settings": {
         "manu": {
