@@ -1,12 +1,13 @@
-import type { LucideIcon } from 'lucide-react'; 
-import type { FloatingPositionValue } from '../../constants/floatingButtonPosition';
+import type { LucideIcon } from "lucide-react";
+import type { FloatingPositionValue } from "../../constants/floatingButtonPosition";
 
 interface FloatingActionButtonProps {
   onClick: () => void;
-  Icon: LucideIcon; 
+  Icon: LucideIcon;
   title: string;
   position: FloatingPositionValue;
   className?: string;
+  disabled?: boolean;
 }
 
 export const FloatingActionButton = ({
@@ -14,9 +15,9 @@ export const FloatingActionButton = ({
   Icon,
   title,
   position,
-  className = ''
+  className = "",
+  disabled,
 }: FloatingActionButtonProps) => {
-  
   const baseClasses = `
     absolute ${position} 
     text-gray-700 dark:text-gray-100
@@ -33,6 +34,7 @@ export const FloatingActionButton = ({
       className={baseClasses}
       aria-label={title}
       title={title}
+      disabled={disabled}
     >
       <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
     </button>

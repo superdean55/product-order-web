@@ -17,11 +17,14 @@ interface UserImageUploaderProps {
 }
 
 export const UserImageUploader = ({ user }: UserImageUploaderProps) => {
-  const { mutateAsync: uploadUserImage } = useUploadUserImageMutation();
-  const { mutateAsync: deleteUserImage } = useDeleteUserImageMutation();
+  const { mutateAsync: uploadUserImage, isPending: isUploading } =
+    useUploadUserImageMutation();
+  const { mutateAsync: deleteUserImage, isPending: isDeleting } =
+    useDeleteUserImageMutation();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t } = useTranslation();
+  const isProcessing = isUploading || isDeleting;
 
   const changeImage = () => {
     if (fileInputRef.current) {
@@ -80,6 +83,7 @@ export const UserImageUploader = ({ user }: UserImageUploaderProps) => {
         username={user.username}
         onImageEditClick={changeImage}
         onImageRemoveClick={() => setIsModalOpen(true)}
+        isImageLoading={isProcessing}
       />
       <input
         type="file"
