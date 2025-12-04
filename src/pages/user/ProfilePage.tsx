@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Activity } from "react";
 import { type AccountView } from "../../types/ui.types";
 import { MainAccountScreen } from "../../components/profile/MainAccountScreen";
 import { ChangePasswordForm } from "../../components/profile/accountSettings/ChangePasswordForm";
@@ -13,7 +13,6 @@ import { ChangeEmailForm } from "../../components/profile/accountSettings/Change
 
 export const ProfilePage = () => {
   const user = useAuthStore((state) => state.user);
-  const [isSettingsSectionOpen, setIsSettingsSectionOpen] = useState(false);
   const { t } = useTranslation();
 
   const { activeView, Navigation } = useViewStackNavigation(
@@ -23,9 +22,6 @@ export const ProfilePage = () => {
   const currentTitle = t(translationKey);
 
   if (!user) return null;
-  const toggleSection = () => {
-    setIsSettingsSectionOpen((prev) => !prev);
-  };
 
   const renderContent = () => {
     switch (activeView) {
@@ -34,8 +30,6 @@ export const ProfilePage = () => {
           <MainAccountScreen
             user={user}
             onSelect={Navigation.push}
-            isSettingsSectionOpen={isSettingsSectionOpen}
-            toggleSection={toggleSection}
           />
         );
       case "CHANGE_PASSWORD":
@@ -54,8 +48,6 @@ export const ProfilePage = () => {
           <MainAccountScreen
             user={user}
             onSelect={Navigation.push}
-            isSettingsSectionOpen={isSettingsSectionOpen}
-            toggleSection={toggleSection}
           />
         );
     }
@@ -64,22 +56,21 @@ export const ProfilePage = () => {
   return (
     <div className="min-h-screen pt-20 flex flex-col items-center">
       <div className="w-full flex flex-col gap-4 max-w-xl p-8 bg-white dark:bg-gray-700 rounded-xl shadow-2xl text-center">
-        {activeView !== "MAIN" && (
-          <div className="w-full flex flex-row items-center">
-            <button
-              onClick={Navigation.back}
-              className="p-2 bg-gray-300 dark:bg-gray-500 hover:bg-gray-600 dark:hover:bg-gray-400  rounded-full flex justify-center items-center cursor-pointer"
-              aria-label="go Back"
-              title="go Back"
-            >
-              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-            </button>
-
-            <h2 className="w-full text-xl text-center font-bold text-gray-700 dark:text-gray-100">
-              {currentTitle}
-            </h2>
-          </div>
-        )}
+        <Activity mode={activeView !== "MAIN" ? 'visible' : 'hidden'}>
+            <div className="w-full flex flex-row items-center">
+              <button
+                onClick={Navigation.back}
+                className="p-2 bg-gray-300 dark:bg-gray-500 hover:bg-gray-600 dark:hover:bg-gray-400  rounded-full flex justify-center items-center cursor-pointer"
+                aria-label="go Back"
+                title="go Back"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+              <h2 className="w-full text-xl text-center font-bold text-gray-700 dark:text-gray-100">
+                {currentTitle}
+              </h2>
+            </div>
+        </Activity>
         {renderContent()}
       </div>
     </div>

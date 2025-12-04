@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { DropdownItem } from "./DropdownItem";
 import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
 
@@ -6,13 +6,15 @@ interface DropdownProps {
   items: DropdownMenuItem[];
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  isLoading?: boolean;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({
+export const Dropdown = ({
   items,
   isOpen,
   setIsOpen,
-}) => {
+  isLoading = false,
+}: DropdownProps) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const handleItemClick = (item: DropdownMenuItem) => {
     item.action();
@@ -42,13 +44,20 @@ export const Dropdown: React.FC<DropdownProps> = ({
 
       <div
         ref={dropdownRef}
-        className={`flex flex-col absolute top-full right-0 z-30  min-w-48  bg-gray-400 dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 p-1`}
+        className={`flex flex-col gap-1 absolute top-full right-0 z-30  min-w-48  bg-gray-400 dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 p-1`}
         role="menu"
         aria-expanded={isOpen}
       >
         {items.map((item, index) => (
-          <DropdownItem key={index} onClick={() => handleItemClick(item)}>
-            {item.label}
+          <DropdownItem
+            key={index}
+            onClick={() => handleItemClick(item)}
+            disabled={isLoading}
+          >
+            <div className="w-full flex flex-row gap-2 items-center">
+              {item.icon && <item.icon className="w-5 h-5" />}
+              {item.label}
+            </div>
           </DropdownItem>
         ))}
       </div>

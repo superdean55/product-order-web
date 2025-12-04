@@ -1,17 +1,17 @@
-// src/components/ui/KebabMenu.tsx
-
-import React, { useState } from "react";
-import { MoreVertical } from "lucide-react";
+import { useState } from "react";
 import Button from "./Button";
 import { ButtonColor } from "../../constants/buttonColors";
 import { Dropdown } from "./DropdownMenu";
 import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
+import type { LucideIcon } from "lucide-react";
 
-interface KebabMenuProps {
+interface MenuProps {
   items: DropdownMenuItem[];
+  Icon: LucideIcon;
+  isLoading?: boolean;
 }
 
-export const KebabMenu: React.FC<KebabMenuProps> = ({ items }) => {
+export const Menu = ({ items, Icon, isLoading }: MenuProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
@@ -20,12 +20,13 @@ export const KebabMenu: React.FC<KebabMenuProps> = ({ items }) => {
         buttonColor={ButtonColor.minimal}
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
-        <MoreVertical className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+        <Icon className="w-6 h-6 text-gray-500 dark:text-gray-100 hover:text-blue-400 dark:hover:text-gray-400 cursor-pointer"/>
       </Button>
       <Dropdown
         isOpen={isDropdownOpen}
         setIsOpen={setIsDropdownOpen}
         items={items}
+        isLoading={isLoading}
       ></Dropdown>
     </div>
   );

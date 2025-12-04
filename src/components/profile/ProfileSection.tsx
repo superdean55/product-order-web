@@ -1,6 +1,6 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, MoreVertical } from "lucide-react";
 import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
-import { KebabMenu } from "../ui/KebabMenu";
+import { Menu } from "../ui/Menu";
 
 interface ProfileSectionProps {
   label: string;
@@ -42,7 +42,15 @@ export const ProfileSection = ({
               />
             )}
           </div>
-          {isOptionManu && <KebabMenu items={menuItems}></KebabMenu>}
+          {isOptionManu && (
+            <Menu
+              items={menuItems}
+              Icon={
+                MoreVertical 
+              }
+              
+            ></Menu>
+          )}
         </div>
         {isContentVisible && <div className="px-2 w-full py-1">{children}</div>}
       </div>
