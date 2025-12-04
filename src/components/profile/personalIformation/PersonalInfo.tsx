@@ -1,19 +1,16 @@
 import { useTranslation } from "react-i18next";
-import { ProfileData, type UserProfileData } from "./ProfileData";
-import { ProfileSection } from "./ProfileSection";
-import type { AccountView } from "../../types/ui.types";
+import { PersonalInfoData, type UserPersonalInfo } from "./PersonalInfoData";
+import { ProfileSection } from "../ProfileSection";
+import type { AccountView } from "../../../types/ui.types";
 
-interface PersonalInformationProps {
-  user: UserProfileData;
+interface PersonalInfoProps {
+  user: UserPersonalInfo;
   onSelect: (view: AccountView) => void;
 }
 
-export const PersonalInformation = ({
-  user,
-  onSelect,
-}: PersonalInformationProps) => {
+export const PersonalInfo = ({ user, onSelect }: PersonalInfoProps) => {
   const { t } = useTranslation();
-  
+
   const handleEdit = () => {
     onSelect("UPDATE_USER");
   };
@@ -24,7 +21,7 @@ export const PersonalInformation = ({
         label={t("profile.sections.personalInformation")}
         onEditClick={handleEdit}
       >
-        <ProfileData user={user} />
+        <PersonalInfoData user={user} />
       </ProfileSection>
     </>
   );

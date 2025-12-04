@@ -1,6 +1,6 @@
 import type { AccountView } from "../../types/ui.types";
 import { SettingsMenu } from "./accountSettings/SettingsMenu";
-import { PersonalInformation } from "./PersonalInformation";
+import { PersonalInfo } from "./personalIformation/PersonalInfo";
 import type { User } from "../../api/types/user";
 import { UserImageUploader } from "./userImage/UserImageUploader";
 
@@ -12,8 +12,7 @@ interface MainAccountScreenProps {
 export const MainAccountScreen = ({
   user,
   onSelect,
-}: MainAccountScreenProps) => { 
-
+}: MainAccountScreenProps) => {
   if (!user) return null;
 
   return (
@@ -22,7 +21,7 @@ export const MainAccountScreen = ({
         <SettingsMenu onSelect={onSelect}></SettingsMenu>
       </div>
       <UserImageUploader user={user} />
-      <PersonalInformation user={user} onSelect={onSelect} />
+      <PersonalInfo user={user} onSelect={onSelect} />
     </div>
   );
 };
