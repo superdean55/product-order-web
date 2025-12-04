@@ -1,5 +1,3 @@
-// src/components/profile/UserImageUploader.tsx
-
 import React, { useRef, useState } from "react";
 import type { User } from "../../../api/types/user";
 import {
@@ -81,7 +79,7 @@ export const UserImageUploader = ({ user }: UserImageUploaderProps) => {
       <UserImage
         imageUrl={user.imageUrl}
         username={user.username}
-        onImageEditClick={changeImage}
+        onImageUpdateClick={changeImage}
         onImageRemoveClick={() => setIsModalOpen(true)}
         isImageLoading={isProcessing}
       />

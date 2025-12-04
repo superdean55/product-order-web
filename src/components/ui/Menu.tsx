@@ -1,9 +1,8 @@
 import { useState } from "react";
-import Button from "./Button";
-import { ButtonColor } from "../../constants/buttonColors";
 import { Dropdown } from "./DropdownMenu";
 import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
 import type { LucideIcon } from "lucide-react";
+import { IconButton } from "./IconButton";
 
 interface MenuProps {
   items: DropdownMenuItem[];
@@ -16,12 +15,7 @@ export const Menu = ({ items, Icon, isLoading }: MenuProps) => {
 
   return (
     <div className="relative inline-block">
-      <Button
-        buttonColor={ButtonColor.minimal}
-        onClick={() => setIsDropdownOpen((prev) => !prev)}
-      >
-        <Icon className="w-6 h-6 text-gray-500 dark:text-gray-100 hover:text-blue-400 dark:hover:text-gray-400 cursor-pointer"/>
-      </Button>
+      <IconButton Icon={Icon} onClick={() => setIsDropdownOpen((prev) => !prev)}/>
       <Dropdown
         isOpen={isDropdownOpen}
         setIsOpen={setIsDropdownOpen}

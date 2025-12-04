@@ -1,58 +1,35 @@
-import { ChevronDown, ChevronUp, MoreVertical } from "lucide-react";
-import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
-import { Menu } from "../ui/Menu";
+import { Edit } from "lucide-react";
+import { IconButton } from "../ui/IconButton";
+import { Activity } from "react";
 
 interface ProfileSectionProps {
   label: string;
-  isSectionOpen?: boolean;
-  toggleIsSectionOpen?: () => void;
-  menuItems?: DropdownMenuItem[];
+  onEditClick?: () => void;
   children: React.ReactNode;
 }
 export const ProfileSection = ({
   label,
-  isSectionOpen,
-  toggleIsSectionOpen,
-  menuItems,
+  onEditClick,
   children,
 }: ProfileSectionProps) => {
-  const isCollapsible =
-    isSectionOpen !== undefined && toggleIsSectionOpen !== undefined;
-  const isContentVisible = !isCollapsible || isSectionOpen;
-  const Icon = isSectionOpen ? ChevronUp : ChevronDown;
-  const isOptionManu = menuItems !== undefined;
+  const isIconVisible = onEditClick !== undefined ? "visible" : "hidden";
   return (
     <>
-      <div className="w-full flex flex-col items-start">
+      <div className="w-full flex flex-col gap-2 items-start">
         <div className="w-full flex flex-row justify-between items-center">
-          <div className="flex flex-row gap-2">
-            <span
-              className="
+          <span
+            className="
             text-[12px] font-medium uppercase tracking-wider
             text-gray-500 dark:text-gray-400
                   "
-            >
-              {label}
-            </span>
-            {isCollapsible && (
-              <Icon
-                onClick={toggleIsSectionOpen}
-                className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer text-gray-500 dark:text-gray-400"
-                aria-label={isSectionOpen ? `Hide ${label}` : `Show ${label}`}
-              />
-            )}
-          </div>
-          {isOptionManu && (
-            <Menu
-              items={menuItems}
-              Icon={
-                MoreVertical 
-              }
-              
-            ></Menu>
-          )}
+          >
+            {label}
+          </span>
+          <Activity mode={isIconVisible}>
+            <IconButton Icon={Edit} onClick={onEditClick} />
+          </Activity>
         </div>
-        {isContentVisible && <div className="px-2 w-full py-1">{children}</div>}
+        {children}
       </div>
     </>
   );

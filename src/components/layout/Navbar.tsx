@@ -6,6 +6,7 @@ import { useSettings } from "../../context/useSettings";
 import { useScreenSize } from "../../context/useScreenSize";
 import { useAuthStore } from "../../store/auth.store";
 import { UserProfileIcon } from "../ui/UserProfileIcon";
+import { IconButton } from "../ui/IconButton";
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -38,9 +39,7 @@ export default function Navbar() {
             </>
           )}
 
-          <button onClick={toggleSettings}>
-            <Settings className="w-6 h-6 hover:text-blue-400 dark:hover:text-gray-400 cursor-pointer" />
-          </button>
+          <IconButton onClick={toggleSettings} Icon={Settings}/>
         </div>
       </nav>
       {!isLargeScreen && (

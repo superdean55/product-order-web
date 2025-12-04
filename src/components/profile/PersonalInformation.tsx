@@ -18,18 +18,11 @@ export const PersonalInformation = ({
     onSelect("UPDATE_USER");
   };
 
-  const dropdownMenuItems = [
-    {
-      label: "edit",
-      action: handleEdit,
-    },
-  ];
-
   return (
     <>
       <ProfileSection
         label={t("profile.sections.personalInformation")}
-        menuItems={dropdownMenuItems}
+        onEditClick={handleEdit}
       >
         <ProfileData user={user} />
       </ProfileSection>

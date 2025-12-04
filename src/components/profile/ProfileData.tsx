@@ -38,7 +38,7 @@ export const ProfileData: React.FC<ProfileDataProps> = ({ user }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
       <LabeledDataItem label={t("profile.username")} value={user.username} />
       <LabeledDataItem label={t("profile.email")} value={user.email} />
       <LabeledDataItem label={t("profile.firstName")} value={user.firstName} />

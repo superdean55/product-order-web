@@ -10,7 +10,7 @@ export default function MainLayout() {
   return (
     <div className="min-h-screen flex flex-row overflow-y-auto">
       <Navbar />
-      <main className="px-6 flex-1 bg-gray-100 dark:bg-gray-800">
+      <main className="px-2 flex-1 bg-gray-100 dark:bg-gray-800">
         <Outlet />
       </main>
       {isLargeScreen && isOpen && <SettingsSidebar />}

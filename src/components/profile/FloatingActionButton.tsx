@@ -20,7 +20,7 @@ export const FloatingActionButton = ({
 }: FloatingActionButtonProps) => {
   const baseClasses = `
     absolute ${position} 
-    text-gray-700 dark:text-gray-100
+    text-gray-100 dark:text-gray-100
     bg-black/30 hover:bg-black/50
     p-2 rounded-full shadow-lg 
     transition-colors duration-200 
@@ -36,7 +36,7 @@ export const FloatingActionButton = ({
       title={title}
       disabled={disabled}
     >
-      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+      <Icon className="w-5 h-5 sm:w-6 sm:h-6"/>
     </button>
   );
 };

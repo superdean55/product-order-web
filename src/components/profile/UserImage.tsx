@@ -8,7 +8,7 @@ interface UserImageProps {
   imageUrl: string | null;
   username: string;
   isImageLoading?: boolean;
-  onImageEditClick?: () => void;
+  onImageUpdateClick?: () => void;
   onImageRemoveClick?: () => void;
 }
 
@@ -16,7 +16,7 @@ export const UserImage = ({
   imageUrl,
   username,
   isImageLoading = false,
-  onImageEditClick,
+  onImageUpdateClick,
   onImageRemoveClick,
 }: UserImageProps) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -49,18 +49,18 @@ export const UserImage = ({
         onMouseLeave={() => setIsHovered(false)}
       >
         {content}
-        {isHovered && onImageEditClick && !imageUrl && !isImageLoading && (
+        {isHovered && onImageUpdateClick && !imageUrl && !isImageLoading && (
           <FloatingActionButton
-            onClick={onImageEditClick}
+            onClick={onImageUpdateClick}
             Icon={ImagePlus}
             title={t("profile.actions.image.add.title")}
             position={FLOATING_POSITION.BOTTOM_RIGHT}
             disabled={isImageLoading}
           />
         )}
-        {isHovered && onImageEditClick && imageUrl && !isImageLoading && (
+        {isHovered && onImageUpdateClick && imageUrl && !isImageLoading && (
           <FloatingActionButton
-            onClick={onImageEditClick}
+            onClick={onImageUpdateClick}
             Icon={Pencil}
             title={t("profile.actions.image.edit.title")}
             position={FLOATING_POSITION.BOTTOM_RIGHT}

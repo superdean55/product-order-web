@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 import { ButtonColor } from "../../constants/buttonColors";
 import { useUpdateUserMutation } from "../../hooks/queries/useUserQuery";
 import type { UpdateUserInput } from "../../api/types/user";
+import toast from "react-hot-toast";
 interface UserUpdateData {
   firstName: string | null;
   lastName: string | null;
@@ -22,7 +23,7 @@ export const UpdateUserDataForm = ({
   user,
 }: UpdateUserDataProps) => {
   const { t } = useTranslation();
-  const { mutateAsync: updateUser, isPending} = useUpdateUserMutation();
+  const { mutateAsync: updateUser, isPending } = useUpdateUserMutation();
   const phoneRegex = /^\+?[0-9]{7,15}$/;
 
   const RegisterSchema = z.object({
@@ -81,16 +82,17 @@ export const UpdateUserDataForm = ({
         dateOfBirth: data.dateOfBirth ?? null,
       };
 
-      await updateUser(payload);
+      const res = await updateUser(payload);
+      toast.success(res.message);
       onSuccess();
       reset();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      const msg =
+      const message =
         error?.response?.data?.message ||
         t("profile.actions.updateUser.errors.updateFailed");
-
-      setError("root", { message: msg });
+      toast.error(message);
+      setError("root", { message: message });
     }
   };
 
