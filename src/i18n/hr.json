@@ -70,7 +70,7 @@
     "InvalidDate": "",
     "sections": {
       "personalInformation": "Osobne Informacije",
-      "accountSettings": "Postavke Računa"
+      "accountInformation": "Informacije profila"
     },
     "viewTitles": {
       "main": "Profil",
