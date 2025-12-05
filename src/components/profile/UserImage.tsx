@@ -44,7 +44,7 @@ export const UserImage = ({
   return (
     <div className="w-full flex justify-center">
       <div
-        className="relative w-32 h-32 sm:w-[250px] sm:h-[250px] rounded-3xl overflow-hidden  shadow-xl"
+        className="relative w-48 h-48 sm:w-[250px] sm:h-[250px] rounded-3xl overflow-hidden  shadow-xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

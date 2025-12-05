@@ -55,7 +55,7 @@ export const ProfilePage = () => {
 
   return (
     <div className="min-h-screen pt-20 flex flex-col items-center">
-      <div className="w-full flex flex-col gap-4 max-w-xl p-4 md:p-8 bg-white dark:bg-gray-700 rounded-xl shadow-2xl text-center">
+      <div className="w-full flex flex-col gap-4 max-w-xl lg:max-w-5xl p-4 md:p-8 bg-white dark:bg-gray-700 rounded-xl shadow-2xl text-center">
         <Activity mode={activeView !== "MAIN" ? 'visible' : 'hidden'}>
             <div className="w-full flex flex-row items-center">
               <button

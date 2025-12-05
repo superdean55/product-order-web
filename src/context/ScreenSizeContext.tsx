@@ -8,10 +8,10 @@ type ScreenSizeContextType = {
 export const ScreenSizeContext = createContext<ScreenSizeContextType | undefined>(undefined);
 
 export const ScreenSizeProvider = ({ children }: { children: ReactNode }) => {
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
-    const handleResize = () => setIsLargeScreen(window.innerWidth >= 768);
+    const handleResize = () => setIsLargeScreen(window.innerWidth >= 1024);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

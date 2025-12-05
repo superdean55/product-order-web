@@ -1,12 +1,9 @@
 import { useTranslation } from "react-i18next";
-
 import { ProfileSection } from "../ProfileSection";
-import type { AccountView } from "../../../types/ui.types";
 import { AccountInfoData, type UserAccountInfo } from "./AccountInfoData";
 
 interface AccountInfoProps {
   user: UserAccountInfo;
-  onSelect: (view: AccountView) => void;
 }
 
 export const AccountInfo = ({ user }: AccountInfoProps) => {
