@@ -4,7 +4,7 @@ import { SmallScreenNavBar } from "../ui/SmallScreenNavBar";
 import type { User } from "../../api/types/user";
 import { PersonalInfo } from "./personalIformation/PersonalInfo";
 import type { AccountView } from "../../types/ui.types";
-import { AccountInfo } from "./accountinformation/AccountInfo";
+import { AccountInfo } from "./accountInformation/AccountInfo";
 
 export const SmallScreenAccountViews = {
   PERSONAL_INFO: "personal_info",

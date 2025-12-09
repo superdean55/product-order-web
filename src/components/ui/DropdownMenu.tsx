@@ -44,7 +44,7 @@ export const Dropdown = ({
 
       <div
         ref={dropdownRef}
-        className={`flex flex-col gap-1 absolute top-full right-0 z-30  min-w-48  bg-gray-400 dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 p-1`}
+        className={`flex flex-col gap-1 w- absolute top-full right-0 z-30  min-w-48  bg-gray-400 dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 p-1`}
         role="menu"
         aria-expanded={isOpen}
       >

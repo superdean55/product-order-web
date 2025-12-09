@@ -3,7 +3,7 @@ import { SettingsMenu } from "./accountSettings/SettingsMenu";
 import { PersonalInfo } from "./personalIformation/PersonalInfo";
 import type { User } from "../../api/types/user";
 import { UserImageUploader } from "./userImage/UserImageUploader";
-import { AccountInfo } from "./accountinformation/AccountInfo";
+import { AccountInfo } from "./accountInformation/AccountInfo";
 import { useScreenSize } from "../../context/useScreenSize";
 import { SmallScreenAccountNavigation } from "./ SmallScreenAccountNavigation";
 

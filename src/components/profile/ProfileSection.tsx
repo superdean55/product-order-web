@@ -16,7 +16,7 @@ export const ProfileSection = ({
   return (
     <>
       <div className="w-full flex flex-col gap-2 items-start">
-        <div className="w-full flex flex-row justify-between items-center">
+        <div className="w-full flex flex-row justify-between min-h-10 items-center">
           <span
             className="
             text-[12px] font-medium uppercase tracking-wider
