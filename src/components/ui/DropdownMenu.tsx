@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { DropdownItem } from "./DropdownItem";
 import type { DropdownMenuItem } from "../../types/dropdownMenuItem";
+import { IconSize, IconSizeClassMap } from "../../styles/dimensions";
 
 interface DropdownProps {
   items: DropdownMenuItem[];
@@ -44,7 +45,7 @@ export const Dropdown = ({
 
       <div
         ref={dropdownRef}
-        className={`flex flex-col gap-1 w- absolute top-full right-0 z-30  min-w-48  bg-gray-400 dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 p-1`}
+        className={`flex flex-col gap-1 w- absolute top-full right-0 z-30  min-w-48  shadow-lg `}
         role="menu"
         aria-expanded={isOpen}
       >
@@ -55,7 +56,7 @@ export const Dropdown = ({
             disabled={isLoading}
           >
             <div className="w-full flex flex-row gap-2 items-center">
-              {item.icon && <item.icon className="w-5 h-5" />}
+              {item.icon && <item.icon className={`${IconSizeClassMap[IconSize.SM]}`} />}
               {item.label}
             </div>
           </DropdownItem>

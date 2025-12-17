@@ -1,16 +1,15 @@
 import { useTheme } from "../../context/useTheme";
 import { useTranslation } from "react-i18next";
+import { TextColor, TextColorMap } from "../../styles/colors";
 
 export default function ThemeToggle() {
   const { t } = useTranslation();
   const { theme, toggleTheme, followOS, setFollowOS } = useTheme();
 
   return (
-    <div className="space-y-4">
+    <div className={`flex flex-col gap-2 ${TextColorMap[TextColor.TEXT]}`}>
       <label className="flex items-center justify-between cursor-pointer">
-        <span className="text-gray-900 dark:text-gray-100">
-          {t("settings.followSystemTheme")}
-        </span>
+        <span>{t("settings.followSystemTheme")}</span>
         <input
           type="checkbox"
           checked={followOS}
@@ -18,12 +17,10 @@ export default function ThemeToggle() {
         />
       </label>
 
-      <div className="opacity-100">
+      <div>
         <div className="flex items-center justify-between mb-1">
-          <span className="text-gray-900 dark:text-gray-100">
-            {t("settings.currentTheme")}
-          </span>
-          <span className="text-gray-900 dark:text-gray-100 capitalize">
+          <span>{t("settings.currentTheme")}</span>
+          <span>
             {theme === "dark" ? t("settings.dark") : t("settings.light")}
           </span>
         </div>
@@ -35,10 +32,10 @@ export default function ThemeToggle() {
             relative w-10 h-4 flex items-center rounded-full transition 
             ${
               followOS
-                ? "bg-gray-400 cursor-not-allowed"
+                ? "bg-gray-500 cursor-not-allowed"
                 : theme === "dark"
-                ? "bg-blue-600"
-                : "bg-gray-300"
+                ? "bg-gray-400"
+                : "bg-blue-600"
             }
           `}
         >

@@ -1,4 +1,8 @@
 import type { LucideIcon } from "lucide-react";
+import { BackgroundColor, BackgroundColorMap } from "../../styles/colors";
+import { BUTTON_STYLES } from "../../constants/buttonStyles";
+import { ButtonColor } from "../../constants/buttonColors";
+import { FontSize, FontSizeClassMap, IconSize, IconSizeClassMap, PaddingSize, PaddingSizeMap } from "../../styles/dimensions";
 
 interface SmallScreenNavBarItem {
   value: string;
@@ -26,16 +30,16 @@ const SmallScreenNavBarItem = ({
   const Icon = item.icon;
 
   const buttonClasses = isSelected
-    ? "text-blue-400 dark:text-gray-100 font-semibold bg-gray-900 rounded-2xl"
-    : "text-gray-700 hover:text-gray-100 dark:text-gray-400 dark:hover:text-gray-100 cursor-pointer";
+    ? `${BUTTON_STYLES[ButtonColor.selected]} font-semibold rounded-2xl`
+    : `${BUTTON_STYLES[ButtonColor.minimal]} cursor-pointer`;
 
   return (
     <button
-      className={`flex flex-col items-center justify-center p-2 flex-1 ${buttonClasses}`}
+      className={`flex flex-col items-center justify-center ${PaddingSizeMap[PaddingSize.SM]} flex-1 ${buttonClasses}`}
       onClick={onSelect}
     >
-      <Icon className="w-6 h-6" />
-      <span className="text-xs mt-0.5">{item.label}</span>
+      <Icon className={IconSizeClassMap[IconSize.MD]} />
+      <span className={`${FontSizeClassMap[FontSize.SM]} mt-0.5`}>{item.label}</span>
     </button>
   );
 };
@@ -46,7 +50,7 @@ export const SmallScreenNavBar = ({
   onSelect,
 }: SmallScreenNavBarProps) => {
   return (
-    <div className="bg-gray-400 dark:bg-gray-800 lg:hidden rounded-2xl">
+    <div className={`${BackgroundColorMap[BackgroundColor.CARD_DETAIL]} lg:hidden rounded-2xl`}>
       <nav className="flex justify-around">
         {items.map((item) => (
           <SmallScreenNavBarItem

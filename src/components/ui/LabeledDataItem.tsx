@@ -1,39 +1,50 @@
 import React from "react";
-import { Padding, PaddingClassMap, type PaddingType } from "../../styles/dimensions";
-import { BackgroundColor, BackgroundColorMap, TextColor, TextColorMap, type BackgroundColorType } from "../../styles/colors";
+import {
+  FontSize,
+  FontSizeClassMap,
+  PaddingSize,
+  PaddingSizeMap,
+  type PaddingType,
+} from "../../styles/dimensions";
+import {
+  BackgroundColor,
+  BackgroundColorMap,
+  TextColor,
+  TextColorMap,
+  type BackgroundColorType,
+} from "../../styles/colors";
 
 interface LabeledDataItemProps {
   label: string;
   value: React.ReactNode;
   className?: string;
-  padding?: PaddingType
-  backgroundColor?: BackgroundColorType 
+  padding?: PaddingType;
+  backgroundColor?: BackgroundColorType;
 }
 
 export const LabeledDataItem = ({
   label,
   value,
   className = "",
-  padding = Padding.SM,
-  backgroundColor = BackgroundColor.CARD_DETAIL
+  padding = PaddingSize.SM,
+  backgroundColor = BackgroundColor.CARD_DETAIL,
 }: LabeledDataItemProps) => {
   return (
     <div
-      className={`w-full flex flex-col items-start ${PaddingClassMap[padding]} ${BackgroundColorMap[backgroundColor]} rounded-lg ${className}`}
+      className={`w-full flex flex-col items-start ${PaddingSizeMap[padding]} ${BackgroundColorMap[backgroundColor]} rounded-lg ${className}`}
     >
       <span
-        className=
-        {`text-[10px] font-medium uppercase tracking-wider 
-        ${TextColorMap[TextColor.LABELS]}`}
-      
+        className={`${
+          FontSizeClassMap[FontSize.XS]
+        } font-medium uppercase tracking-wider 
+        ${TextColorMap[TextColor.LABEL]}`}
       >
         {label}
       </span>
       <span
-        className=
-        {`text-lg font-semibold ${TextColorMap[TextColor.MAIN]}`}
-        
-      
+        className={`${FontSizeClassMap[FontSize.LG]} font-semibold ${
+          TextColorMap[TextColor.MAIN]
+        }`}
       >
         {value}
       </span>

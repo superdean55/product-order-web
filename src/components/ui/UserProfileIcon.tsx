@@ -1,8 +1,15 @@
-import React from 'react';
-import { User } from 'lucide-react'; 
-import { useNavigate } from 'react-router-dom';
-import { ROUTE_PATHS } from '../../router/routes';
-import { useAuthStore } from '../../store/auth.store';
+import React from "react";
+import { User } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ROUTE_PATHS } from "../../router/routes";
+import { useAuthStore } from "../../store/auth.store";
+import { IconSize, IconSizeClassMap } from "../../styles/dimensions";
+import {
+  BackgroundColor,
+  BackgroundColorMap,
+  TextColor,
+  TextColorMap,
+} from "../../styles/colors";
 
 export const UserProfileIcon: React.FC = () => {
   const navigate = useNavigate();
@@ -27,12 +34,15 @@ export const UserProfileIcon: React.FC = () => {
       {imageUrl ? (
         <img
           src={imageUrl}
-          alt="Korisnička slika"
           className="w-full h-full object-cover rounded-full"
         />
-      ) : ( 
-        <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300">
-          <User className="w-5 h-5" />
+      ) : (
+        <div
+          className={`w-full h-full flex items-center justify-center rounded-full 
+            ${BackgroundColorMap[BackgroundColor.MAIN]}  
+            ${TextColorMap[TextColor.MAIN]}`}
+        >
+          <User className={IconSizeClassMap[IconSize.SM]} />
         </div>
       )}
     </button>

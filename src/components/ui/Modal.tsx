@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "./Button";
+import { BackgroundColor, BackgroundColorMap, TextColor, TextColorMap } from "../../styles/colors";
+import { PaddingSize, PaddingSizeMap } from "../../styles/dimensions";
 
 type ModalProps = {
   isOpen: boolean;
@@ -34,9 +36,9 @@ export default function Modal({
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60" onClick={onClose} />
 
-      <div className="relative bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-11/12 max-w-md animate-fadeIn">
+      <div className={`relative ${BackgroundColorMap[BackgroundColor.CARD]} ${PaddingSizeMap[PaddingSize.MD]} rounded-lg shadow-lg w-11/12 max-w-md animate-fadeIn`}>
         {title && (
-          <h2 className="text-lg font-bold mb-4 text-gray-900 dark:text-white text-center">
+          <h2 className={`text-lg font-bold mb-4 ${TextColorMap[TextColor.TEXT]} text-center`}>
             {title}
           </h2>
         )}
